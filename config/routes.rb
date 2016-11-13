@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'microposts/index'
+
+  get 'microposts/new'
+
+  get 'microposts/show'
+
   root 'static_pages#home'
 
 #  devise_for :users
