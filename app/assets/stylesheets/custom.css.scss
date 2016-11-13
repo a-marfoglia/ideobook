@@ -12,7 +12,7 @@ $btn-border-radius-small:        0 !default;
 
 /* end of Bootstrap variables */
 
-@import "bootstrap-sprockets";  
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* 0.2           */
@@ -39,6 +39,23 @@ h6 { font-size: 24px; }
 }
 /* end of Generic rules */
 
+/* 0.3                       */
+/* Notices and alerts style  */
+.notice, .alert {
+	position: absolute;
+	top: 55px;
+	left: 20px;
+	right: 20px;
+	background-color: rgba(222, 222, 146, 0.86);
+	border-radius: 3px;
+	padding: 12px;
+  
+  span {
+    cursor: pointer;
+  }
+}
+/* end of Notices and alerts style*/
+
 /* 1.1          */
 /* Header rules */
 #header {
@@ -47,18 +64,18 @@ h6 { font-size: 24px; }
 	background-size: cover;
 	padding:130px 0;
 	overflow: hidden;
-	
+
 	h1 {
 	  color: #FFF;
     text-transform: uppercase;
     text-shadow: 2px 2px #000;
 	}
-	
+
 	h5 {
 	  color: #B1AFAF;
     text-shadow: 1px 1px #000;
 	}
-	
+
 	a {
     margin-top:20px;
   }
@@ -77,7 +94,7 @@ h6 { font-size: 24px; }
     margin-top:    30px;
     margin-bottom: 20px;
   }
-} 
+}
 /* end of Section 2 rules */
 
 /* 1.3             */
