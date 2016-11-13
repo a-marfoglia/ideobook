@@ -1,0 +1,28 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle=
+      "collapse" data-target="#navbar-content"
+      aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Openbook", root_path, class: "navbar-brand" %>
+    </div>
+    <div id="navbar-content" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.email %></li>
+          <li><%= link_to "Esci", destroy_user_session_path, method: "delete" %> </li>
+        <% else %>
+          <li><%=  link_to "Accedi", new_user_session_path %></li>
+          <li><%=  link_to "Registrati", new_user_registration_path %><li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
