@@ -1,2 +1,44 @@
-<h1>Microposts#show</h1>
-<p>Find me in app/views/microposts/show.html.erb</p>
+<%= render layout: 'layouts/forum_layout' do %>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <div class="post">
+      <div class="row">
+        <div class="col-xs-4">
+          <img style="height:50px;width:50px;"></img>
+          <%= link_to @micropost.user.username, "#"%>
+        </div>
+        <div class="col-xs-6">
+          <h3><%= @micropost.title %></h3>
+          <%= @micropost.content %>
+        </div>
+        <div class="col-xs-2">
+          <div class="row">
+            <div class="col-xs-12">
+              <i class="glyphicon glyphicon-eye-open"></i> <%= @micropost.views %> Views
+            </div>
+            <div class="col-xs-12">
+              <i class="glyphicon glyphicon-time"></i> <%= time_ago_in_words(@micropost.created_at) %> ago
+            </div>
+            <div class="col-xs-12">
+              <% if @micropost.has_attachment? %>
+                <%= link_to "Scarica", @micropost.attachment.url %>
+              <% else %>
+                Nessun allegato
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="col-xs-12 col-md-4">
+    <div class="side-list">
+      <h6>Amici</h6>
+    </div>
+    <div class="side-list">
+      <h6>Classifica racconti</h6>
+    </div>
+  </aside>
+</div>
+
+<% end %>

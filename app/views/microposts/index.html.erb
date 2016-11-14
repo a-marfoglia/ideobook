@@ -1,6 +1,24 @@
-<h1>Microposts#index</h1>
-<% if !@microposts.empty? %>
-  <%= render @microposts %>
-<% else %>
-  <p>Non ci sono topic da visualizzare</p>
+<%= render layout: 'layouts/forum_layout' do %>
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <div class="main-list">
+        <% if !@microposts.empty? %>
+          <ul class="post-list">
+            <%= render @microposts %>
+          </ul>
+        <% else %>
+          <h6>Non ci sono topic da visualizzare</h6>
+        <% end %>
+        <%= will_paginate @microposts %>
+      </div>
+    </div>
+    <aside class="col-xs-12 col-md-4">
+      <div class="side-list">
+        <h6>Amici</h6>
+      </div>
+      <div class="side-list">
+        <h6>Classifica racconti</h6>
+      </div>
+    </aside>
+  </div>
 <% end %>

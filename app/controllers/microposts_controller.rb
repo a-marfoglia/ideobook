@@ -1,13 +1,30 @@
 class MicropostsController < ApplicationController
-  def index
-    @microposts = Micropost.all
-  end
+  before_action :authenticate_user!, only: [:new, :create]
 
-  def new
-    @microposts = Micropost.new
+  def index
+    @microposts = Micropost.paginate(page: params[:page], per_page: 10)
   end
 
   def show
-    @microposts = Micropost.find(params[:id])
+    @micropost = Micropost.find(params[:id])
+    @micropost.increment_views
   end
+
+  def new
+    @micropost = Micropost.new
+  end
+
+  def create
+    @micropost = current_user.microposts.build(micropost_params)
+    if @micropost.save
+      redirect_to @micropost
+    else
+      render 'new'
+    end
+  end
+
+  private
+    def micropost_params
+      params.require(:micropost).permit(:title, :content, :category_id, :attachment)
+    end
 end

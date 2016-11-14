@@ -8,7 +8,7 @@ $btn-border-radius-base:         0 !default;
 $btn-border-radius-large:        0 !default;
 $btn-border-radius-small:        0 !default;
 
-/* roba di albi */
+/* roba di albi, tipo un altro tipo di bottoni */
 
 /* end of Bootstrap variables */
 
@@ -49,7 +49,7 @@ h6 { font-size: 24px; }
 	background-color: rgba(222, 222, 146, 0.86);
 	border-radius: 3px;
 	padding: 12px;
-  
+
   span {
     cursor: pointer;
   }
@@ -109,3 +109,39 @@ h6 { font-size: 24px; }
 }
 
 /* end of section 3 rules */
+
+/* 2.0     */
+/* Generic forum rules */
+#forum-main {
+  .main-list, .side-list {
+    background-color: #2F2F2F;
+    padding: 0 20px;
+  }
+
+  .content {
+    background-color: #B0B0B0;
+  }
+
+  .main-list {
+    margin-left: 10px;
+  }
+
+  .side-list {
+    margin-right: 10px;
+  }
+}
+/* end of Generic forum rules */
+
+/* 2.1             */
+/* Post list rules */
+.post-list {
+  list-style-type: none;
+
+  .post {
+    background-color: yellow;
+    height: 150px;
+    margin-bottom: 10px;
+    //text-decoration:
+  }
+}
+/* end of Post list rules */

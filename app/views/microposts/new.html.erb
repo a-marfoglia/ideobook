@@ -1,2 +1,50 @@
-<h1>Microposts#new</h1>
-<p>Find me in app/views/microposts/new.html.erb</p>
+<%= render layout: 'layouts/forum_layout' do %> <%# TODO: ALBERTO %>
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <%= form_for @micropost do |f| %>
+        <%= render 'layouts/error_messages', object: f.object %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Inserisci il titolo" %>
+        <%= f.text_area :content, class: 'form-control', placeholder: "Inserisci la trama" %>
+        <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Categoria" }, class: 'form-control' %>
+
+        <label class="btn btn-primary">
+          <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Browse
+          <%= f.file_field :attachment, style: "display: none" %>
+        </label>
+        <span id="check_file" class="glyphicon glyphicon-check" data-toggle="popover"
+                              data-trigger="hover" data-content="Elimina allegato"
+                              style="display: none;">
+        </span>
+        <%= f.submit "Pubblica", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+    <aside class="col-xs-12 col-md-4">
+      <div class="side-list">
+        <h6>Amici</h6>
+      </div>
+      <div class="side-list">
+        <h6>Classifica racconti</h6>
+      </div>
+    </aside>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  input = $('#micropost_attachment');
+  check = $('#check_file');
+
+  function check_attachment() {
+    if (input.val() != "") {
+      check.fadeIn();
+    }else{
+      check.hide();
+    }
+  }
+
+  input.change(check_attachment);
+
+  check.click(function() {
+    input.val("");
+    check_attachment();
+  });
+</script>
