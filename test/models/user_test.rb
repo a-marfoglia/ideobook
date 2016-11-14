@@ -13,6 +13,12 @@ class UserTest < ActiveSupport::TestCase
   test "email should be valid" do
     @user.email = "ff@e."
     assert_not @user.valid?
+    @user.email = " "
+    assert_not @user.valid?
+    @user.email = "marco"
+    assert_not @user.valid?
+    @user.email = "fico@lol..it"
+    assert_not @user.valid?
   end
 
   test "username should be present" do
