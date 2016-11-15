@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= render layout: 'layouts/forum_layout' do %>
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      Profilo
+      <%= @user.username %>
+      <%= @user.email %>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      Sidebars
+    </div>
+  </div>
+<% end %>
