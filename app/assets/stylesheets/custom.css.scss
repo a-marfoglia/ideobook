@@ -68,8 +68,11 @@ h6 { font-size: 24px; }
 }
 
 .footer {
-  height: 60px;
-  background-color: #222;
+	height: 60px;
+	background-color: #D8D8D8;
+  p {
+    margin-top: 20px;
+  }
 }
 
 .border-left {

@@ -4,6 +4,14 @@
       Profilo
       <%= @user.username %>
       <%= @user.email %>
+      <span>Cambia immagine</span>
+      <% if current_user == @user %>
+        <%= form_for(current_user, url: avatar_upload_path(current_user)) do |f| %>
+          <div class="hiddenfile">
+            <%= f.file_field :picture %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
     <div class="col-xs-12 col-md-4">
       Sidebars
