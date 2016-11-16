@@ -1,7 +1,8 @@
 <li class="post"> <%# TODO: Alberto %>
   <div class="row">
     <div class="col-xs-4">
-      <img style="height:50px;width:50px;"></img>
+      <%= image_tag micropost.user.avatar.thumb.url, alt: "Immagine del profilo",
+                                          class: "img-responsive img-circle" %>
       <%= link_to micropost.user.username, micropost.user %>
     </div>
     <div class="col-xs-6">

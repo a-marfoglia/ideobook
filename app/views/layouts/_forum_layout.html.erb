@@ -2,7 +2,9 @@
 <section class="container" id="forum-main">
   <header style="min-height:200px;">
     <%= link_to microposts_path do %>
-      <%= image_tag 'forum-bg.jpg', class: "img-responsive" %>
+      <div class="crop-img">
+        <%= image_tag 'forum-bg.jpg', class: "img-responsive" %>
+      </div>
     <% end %>
     <div class="row"> <!-- NON MODIFICARE NIENTE AL DI FUORI DI QUI -->
       <div class="col-xs-12"> <!-- MODIFICA QUESTO col-xs-12 e metti quello che ti serve! -->

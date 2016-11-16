@@ -1,34 +1,43 @@
-<h2>Sign up</h2>
+<div id="sign-form" class="container">
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+      <h2>Sign up</h2>
+      <%= devise_error_messages! %>
+      <div class="row">
+        <div class="col-xs-7">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <div class="input-group field">
+              <%= f.text_field :username, class: 'form-control', placeholder: "Username" %>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+            <div class="input-group field">
+              <%= f.email_field :email, class: 'form-control', placeholder: "E-mail", autofocus: true %>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+            <div class="input-group field">
+              <%= f.password_field :password, class: 'form-control',
+                  placeholder: "Password (Minimo #{@minimum_password_length} caratteri)" %>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            </div>
+
+            <div class="input-group field">
+              <%= f.password_field :password_confirmation, class: 'form-control',
+                  placeholder: "Conferma password" %>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-ok"></i></span>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Sign up", class: "btn btn-primary btn-wide" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-xs-5 border-left">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

@@ -9,12 +9,14 @@
         <% else %>
           <h6>Non ci sono topic da visualizzare</h6>
         <% end %>
-        <%= will_paginate @microposts,
-              previous_label: "<span class=\"glyphicon glyphicon-chevron-left\"
-                                aria-hidden=\"true\"></span>",
-              next_label:     "<span class=\"glyphicon glyphicon-chevron-right\"
-                                aria-hidden=\"true\"></span>",
-              inner_window: 3, outer_window: 0 %>
+        <div class="pull-right">
+          <%= will_paginate @microposts,
+                previous_label: "<span class=\"glyphicon glyphicon-chevron-left\"
+                                  aria-hidden=\"true\"></span>",
+                next_label:     "<span class=\"glyphicon glyphicon-chevron-right\"
+                                  aria-hidden=\"true\"></span>",
+                inner_window: 2, outer_window: 0 %>
+        </div>
       </div>
     </div>
     <aside class="col-xs-12 col-md-4">
