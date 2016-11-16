@@ -30,6 +30,16 @@
         </div>
       </div>
     </div>
+    <div class="comment-area">
+      <%= form_for [@micropost, @comment] do |f| %>
+        <%= render 'layouts/error_messages', object: f.object %>
+        <%= f.text_area :content, placeholder: "Scrivi un commento...", class: 'form-control' %>
+        <%= f.submit "Invia commento" %>
+      <% end %>
+      <div class="comment-list">
+        <%= render @micropost.comments %>
+      </div>
+    </div>
   </div>
   <aside class="col-xs-12 col-md-4">
     <div class="side-list">
@@ -40,5 +50,4 @@
     </div>
   </aside>
 </div>
-
 <% end %>

@@ -171,6 +171,44 @@ h6 { font-size: 24px; }
 
 /* end of Login and Signin rules */
 
+/* 1.5                */
+/* User profile rules */
+#profile {
+  .user-avatar-container {
+    position: relative;
+    height: 100px;
+    width: 100px;
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      max-width: 100px;
+
+      cursor: pointer;
+      @include unselectable;
+      color: #fff;
+      background: RGBA(0, 0, 0, 0.47);
+    }
+    &:hover span {
+      display: inline;
+    }
+    .hiddenfile {
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    @media only screen and (max-width: $screen-xs-max) {
+      span{
+        display: inline;
+      }
+    }
+  }
+}
+/* End of User profile rules */
+
 /* 2.0     */
 /* Generic forum rules */
 #forum-main {
@@ -184,11 +222,11 @@ h6 { font-size: 24px; }
   }
 
   .main-list {
-    margin-left: 10px;
+    margin: 0 10px 0 10px;
   }
 
   .side-list {
-    margin-right: 10px;
+    margin: 0 10px 0 10px;
   }
 }
 /* end of Generic forum rules */
@@ -197,6 +235,7 @@ h6 { font-size: 24px; }
 /* Post list rules */
 .post-list {
   list-style-type: none;
+  padding: 0;
 
   .post {
     background-color: yellow;

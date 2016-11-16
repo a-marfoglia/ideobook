@@ -8,6 +8,7 @@ class MicropostsController < ApplicationController
   def show
     @micropost = Micropost.find(params[:id])
     @micropost.increment_views
+    @comment = Comment.new
   end
 
   def new

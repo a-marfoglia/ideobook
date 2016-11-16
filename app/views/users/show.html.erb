@@ -1,20 +1,36 @@
 <%= render layout: 'layouts/forum_layout' do %>
   <div class="row">
-    <div class="col-xs-12 col-md-8">
+    <div id="profile" class="col-xs-12 col-md-8">
       Profilo
       <%= @user.username %>
       <%= @user.email %>
-      <span>Cambia immagine</span>
-      <% if current_user == @user %>
-        <%= form_for(current_user, url: avatar_upload_path(current_user)) do |f| %>
-          <div class="hiddenfile">
-            <%= f.file_field :picture %>
-          </div>
+      <div class="user-avatar-container">
+        <%= image_tag @user.avatar.small.url, alt: "Immagine del profilo" %>
+        <% if current_user == @user %>
+          <span>Cambia immagine</span>
+          <%= form_for(current_user, url: avatar_upload_path(current_user)) do |f| %>
+            <div class="hiddenfile">
+              <%= f.file_field :avatar %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
     <div class="col-xs-12 col-md-4">
       Sidebars
     </div>
   </div>
 <% end %>
+
+<script>
+  /* autosubmit */
+  input = $('#user_avatar');
+  input.change(function(){
+    if (input.val() != "")
+      input.closest('form').submit();
+  });
+  /* apre l'input file utilizzando lo span */
+  $('.user-avatar-container span').click(function(){
+    input.trigger('click');
+  });
+</script>
