@@ -8,6 +8,17 @@ $btn-border-radius-base:         0 !default;
 $btn-border-radius-large:        0 !default;
 $btn-border-radius-small:        0 !default;
 
+
+
+$grey-light: #e9e9e9;
+$grey-text:  #9da6aa;
+$grey-primary-text: #989c9e;
+
+$post-height: 132px;
+$post-info-n: 4;
+$post-info-height: $post-height/$post-info-n;
+
+$view-height: 200px;
 /* roba di albi, tipo un altro tipo di bottoni */
 
 /* end of Bootstrap variables */
@@ -75,9 +86,15 @@ h6 { font-size: 24px; }
   }
 }
 
-.border-left {
-  border-left: 1px solid #ccc;
+.glyphicon:before{
+  margin-right:5px;
 }
+
+.border-left { border-left: 1px solid $grey-light;}
+
+.border-bottom { border-bottom: 1px solid $grey-light;}
+
+.border-top { border-top: 1px solid $grey-light;}
 
 .field {
   margin-bottom: 10px;
@@ -98,7 +115,7 @@ h6 { font-size: 24px; }
 
   ul {
   	padding: 0px;
-  	list-style: inside none disc;
+  	list-style: none;
   	margin-bottom: 0px;
   }
 }
@@ -241,22 +258,29 @@ h6 { font-size: 24px; }
     width: 100%;
   }
 
-  .main-list, .side-list {
-    background-color: #2F2F2F;
-    padding: 0 20px;
-  }
+  .main-list, .side-list { padding: 0 20px;}
 
-  .content {
-    background-color: #B0B0B0;
+  .content { padding-top: 20px; background-color: #e9e9e9;}
+  
+  .cont-forum{
+    background-color:white;
+    box-shadow: 0 1px 2px #c9cccd;
   }
+  
+  textarea{
+    border-radius: 0;
+    border: none;
+    background-color: #e9e9e9;
+    padding:10px;
+    margin-bottom:5px;
+    resize:none;
+   }
 
-  .main-list {
-    margin: 0 10px 0 10px;
-  }
+  .main-list { margin: 0 10px 0 10px;}
 
-  .side-list {
-    margin: 0 10px 0 10px;
-  }
+  .side-list { margin: 0 10px 0 10px;}
+  
+  .avatar { padding-left: 20px; margin-top:8px; text-align:center }
 }
 /* end of Generic forum rules */
 
@@ -267,10 +291,49 @@ h6 { font-size: 24px; }
   padding: 0;
 
   .post {
-    background-color: yellow;
-    height: 150px;
+    height: $post-height;
     margin-bottom: 10px;
-    //text-decoration:
+    
+    p { color: $grey-primary-text; }
+    
+    .post-info {
+      //padding: 0 10px;
+      margin-left: 10px;
+      height: $post-height;
+      span {
+        display: block;
+        height: $post-info-height;
+        padding: 10px 0 0;
+        &:last-child { border-bottom: none; }
+        
+        font-size: 12px;
+        color: $grey-text;
+      }
+    }
   }
 }
 /* end of Post list rules */
+
+/* 2.2             */
+/*  View rules */
+.view{
+  height:$view-height;
+  margin-bottom:10px;
+  
+  p{ height:95px;}
+  
+  .view-info{
+    padding:8px;
+  }
+}
+
+.comment-area{
+  padding: 10px;
+  height:140px;
+  .padding-top
+  {
+    padding-top:15px;
+  }
+}
+
+/* end of View rules */

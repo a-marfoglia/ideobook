@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 99.times do |n|
   username  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
@@ -16,9 +15,12 @@
                password_confirmation: password)
 end
 
+category = Category.create!(name: "test")
+id = category.id
+
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
   title = Faker::Lorem.word()
-  users.each { |user| user.microposts.create!(content: content, title: title) }
+  users.each { |user| user.microposts.create!(content: content, title: title, category_id: id ) }
 end
