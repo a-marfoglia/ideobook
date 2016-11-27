@@ -4,55 +4,55 @@
     <div class="main-list">
       <div class="cont-forum view">
         <div class="row">
-          <div class="col-xs-2">
+          <div class="col-xs-3 col-sm-2">
             <div class="avatar">
               <%= image_tag @micropost.user.avatar.thumb.url, alt: "Immagine del profilo", class: "img-circle" %>
               <p><%= link_to @micropost.user.username, @micropost.user %></p>
             </div>
           </div>
-          <div class="col-xs-10">
+          <div class="col-xs-9 col-sm-10">
             <h5><%= @micropost.title %></h5>
             <p><%= @micropost.content %></p>
-            <div class="row">
-             <div class="border-top view-info">
-                <div class="col-xs-4">
-                  <span class="glyphicon glyphicon-time"><%= time_ago_in_words(@micropost.created_at) %></span>
-                </div>
-                <div class="pull-right col-xs-1"">
-                  <span class="glyphicon glyphicon-download">
-                  <% if @micropost.has_attachment? %>
-                    <%= link_to "Scarica", @micropost.attachment.url %>
-                  <% else %>
-                  <% end %></span>
-                </div>
-                <div class="pull-right col-xs-1">
-                  <span class="glyphicon glyphicon-eye-open"></span>
-                </div>
-                <div class="pull-right col-xs-1">
-                  <span class="glyphicon glyphicon-comment"></span>
-                </div>
-                <div class="pull-right col-xs-1">
-                  <span class="glyphicon glyphicon-thumbs-up"></span>
-                </div>
-              </div>
-            </div>
+          </div>
+          <div class="col-xs-12">
+	     <div class="border-top view-info">
+		<div class="col-xs-4">
+		  <span class="glyphicon glyphicon-time"><%= time_ago_in_words(@micropost.created_at) %></span>
+		</div>
+		<div class="pull-right col-xs-1"">
+		  <span class="glyphicon glyphicon-download">
+		  <% if @micropost.has_attachment? %>
+		    <%= link_to "Scarica", @micropost.attachment.url %>
+		  <% else %>
+		  <% end %></span>
+		</div>
+		<div class="pull-right col-xs-1">
+		  <span class="glyphicon glyphicon-eye-open"></span>
+		</div>
+		<div class="pull-right col-xs-1">
+		  <span class="glyphicon glyphicon-comment"></span>
+		</div>
+		<div class="pull-right col-xs-1">
+		  <span class="glyphicon glyphicon-thumbs-up"></span>
+		</div>
+	      </div>
           </div>
         </div>
        </div>
        <div class="cont-forum comment-area">
          <div class="row">
-           <div class="col-xs-2">
+           <div class="col-xs-3 col-sm-2">
              <div class="avatar">
                <%= image_tag @micropost.user.avatar.thumb.url, alt: "Immagine del profilo", class: "img-circle" %>
                <p><%= link_to @micropost.user.username, @micropost.user %></p>
              </div>
            </div>
-           <div class="col-xs-10">
+           <div class="col-xs-9 col-sm-10">
              <div class="padding-top">
                <%= form_for [@micropost, @comment] do |f| %>
                  <%= render 'layouts/error_messages', object: f.object %>
                  <%= f.text_area :content, placeholder: "Scrivi un commento...", class: 'form-control' %>
-                 <%= f.submit "Invia commento", class:'pull-right' %>
+                 <%= f.submit "Invia commento", class:'btn btn-primary pull-right' %>
                <% end %>
                <div class="comment-list">
                 <%= render @micropost.comments %>
