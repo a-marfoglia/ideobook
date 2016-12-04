@@ -17,6 +17,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'acts_as_follower'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

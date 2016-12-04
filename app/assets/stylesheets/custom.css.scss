@@ -271,10 +271,9 @@ h6 { font-size: 24px; }
     height: 250px;
     width: 100%;
   }
+  .main-list, .side-list { padding: 0px 25px;}
 
-  .main-list, .side-list { padding: 0 25px;}
-
-  .content { padding-top: 20px; background-color: #e9e9e9;}
+  .content { padding-top: 20px;  padding-bottom:20px; background-color: #e9e9e9;}
 
   .cont-forum{
     background-color:white;
@@ -353,26 +352,32 @@ h6 { font-size: 24px; }
   .view-info{
     padding:8px;
   }
+  
+  h6 span{
+    font-size:16px;
+    padding-right:20px;
+  }
 }
 
 .comment-area{
-  padding-right: 10px;
-  height:136px;
-  .padding-top
-  {
-    padding-top:15px;
+  form {
+    padding: 10px;
+    height: 124px
   }
 }
 
 /* end of View rules */
 
 
-/* 2.3             */
+/* 2.3              */
 /*  New topic rules */
 .new-topic
 {
-  height:294px;
-  padding:5px;
+  padding:10px 30px;
+  padding-top:5px;
+  #check_file {
+    cursor: pointer;
+  }
   .new-title input,select{
     border-radius: 0;
     border: none;
@@ -384,16 +389,20 @@ h6 { font-size: 24px; }
     height:140px;
     resize: none;
    }
-  .new-title input,.new-category select{height:40px;}
+  .new-title input,.new-category select{ height:40px;}
+  
+   @media only screen and (max-width: $screen-xs-max){
+      padding: 10px;
+   }
 }
 /*  end of new topic rules */
 
-/* 2.4             */
+/* 2.4                */
 /*  New profile rules */
 .profile{
-  height:160px;
-  p{margin-bottom:2px;}
-  span{font-size:16px;}
+  padding:10px;
+  p { margin-bottom:2px;}
+  span { font-size:16px;}
   .profile-btn{
     padding: 8px;
     margin-top: 10px;
@@ -408,13 +417,9 @@ h6 { font-size: 24px; }
 	  .profile-btn 
 	  {
 	    margin-top:20px;
-	    a
-	    {
-	      padding:0;
-	      padding-right: 5.5px;
-	    }
+	    a { padding:0;padding-right: 5.5px;}
 	  }
-	  p{font-size:13px;}
+	  p { font-size:13px;}
 	}
 }
 /*  end profile rules  */

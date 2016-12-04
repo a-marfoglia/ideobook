@@ -11,6 +11,8 @@ class Micropost < ActiveRecord::Base
 
   mount_uploader :attachment, AttachmentUploader
   validate  :attachment_size
+  
+  acts_as_followable
 
   def increment_views
     self.increment :views

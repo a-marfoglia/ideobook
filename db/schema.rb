@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116133206) do
+ActiveRecord::Schema.define(version: 20161204144706) do
 
   create_table "categories", force: :cascade do |t|
     t.text     "name"
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 20161116133206) do
 
   add_index "comments", ["micropost_id"], name: "index_comments_on_micropost_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followable_id",                   null: false
+    t.string   "followable_type",                 null: false
+    t.integer  "follower_id",                     null: false
+    t.string   "follower_type",                   null: false
+    t.boolean  "blocked",         default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
 
   create_table "microposts", force: :cascade do |t|
     t.text     "title"

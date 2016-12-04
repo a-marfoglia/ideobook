@@ -1,0 +1,2 @@
+module MicropostFollowHelper
+end

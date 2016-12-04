@@ -3,28 +3,36 @@
     <div id="profile" class="col-xs-12 col-md-8">
        <div class="main-list">
         <div class="cont-forum profile">
-          <div class="col-xs-3">
-            <div class="pull-right user-avatar-container">
-              <%= image_tag @user.avatar.small.url, alt: "Immagine del profilo"%>
-              <% if current_user == @user %>
-                <span>Cambia immagine</span>
-                <%= form_for(current_user, url: avatar_upload_path(current_user)) do |f| %>
-                  <div class="hiddenfile">
-                    <%= f.file_field :avatar %>
-                  </div>
+          <div class="row">
+            <div class="col-xs-3">
+              <div class="pull-right user-avatar-container">
+                <%= image_tag @user.avatar.small.url, alt: "Immagine del profilo"%>
+                <% if current_user == @user %>
+                  <span>Cambia immagine</span>
+                  <%= form_for(current_user, url: avatar_upload_path(current_user)) do |f| %>
+                    <div class="hiddenfile">
+                      <%= f.file_field :avatar %>
+                    </div>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
-          </div>
-          <div class="col-xs-9">
-            <h6><%= @user.username %><span class="glyphicon glyphicon-cog pull-right"></span></h6>
-            <p>Nazionalità:</p>
-            <p>Lettori:</p>
-            <p>Genere preferito:</p>
-            <div class="profile-btn border-top text-center">
-              <a class="border-right" type="button">Segui</a>
-              <a class="border-right" type="button">Racconti</a>
-              <a type="button">Contatta</a>
+            <div class="col-xs-9">
+              <h6><%= @user.username %><span class="glyphicon glyphicon-cog pull-right"></span></h6>
+              <p>Nazionalità:</p>
+              <p>Lettori:</p>
+              <p>Genere preferito:</p>
+              <div class="profile-btn border-top text-center">
+                <% if current_user != @user %>
+                  <% if !current_user.following?(@user) %>
+                    <%= link_to "Segui", new_user_follow_path(id: @user.id), class: 'border-right' %>
+                  <% else %>
+                    <%= link_to "Non seguire", user_follow_path(id: @user.id), method: 'delete', class: 'border-right' %>
+                  <% end %>
+                <% end %>
+                <a class="border-right" type="button">Racconti</a>
+                <a type="button">Contatta</a>
+              </div>
             </div>
           </div>
         </div>
