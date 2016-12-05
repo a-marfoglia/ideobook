@@ -309,6 +309,27 @@ h6 { font-size: 24px; }
     }
   }
 }
+
+
+/* Navbar of forum rules */
+
+.f-navbar{
+	padding: 10px 146px;
+	
+	img { height:28px; }
+	.dropdown a {font-size:15px;}
+	a span.glyphicon-bell{ font-size:24px; padding-top:4px}
+	input ,span.input-group-addon { border-radius: 0;}
+	
+	@media only screen and (max-width: $screen-md-max){ padding: 10px 60px; }
+	@media only screen and (max-width: $screen-xs-max)
+	{ 
+	  padding: 10px 12px;
+	  .input-group{ margin-bottom: 8px; }
+	}
+}
+/* end of navbar forum rules */
+
 /* end of Generic forum rules */
 
 /* 2.1             */
