@@ -7,7 +7,7 @@
           <%= image_tag 'forum-bg.jpg', class: "img-responsive" %>
         </div>
       <% end %>
-          
+
           <div class="f-navbar cont-forum text-center">
             <div class="row">
 	            <div class="hidden-xs col-sm-2 col-md-1">
@@ -32,9 +32,9 @@
 	            </div>
 	            <div class="col-xs-12 col-sm-5 col-md-4">
 	              <%= content_tag :div, class: 'input-group' do %>
-		              <input type="text" class="form-control" placeholder="Ricerca racconto..">   
+		              <input type="text" class="form-control" placeholder="Ricerca racconto..">
 		              <%= content_tag :span, (content_tag :i, nil, class: 'glyphicon glyphicon-search'), class: 'input-group-addon' %>
-                <% end %>    
+                <% end %>
 	            </div>
 	            <div class="hidden-sm hidden-md hidden-lg col-xs-3">
 	              <%= link_to microposts_path do %>
@@ -48,10 +48,24 @@
                   <% end %>
 	            </div>
 	            <div class="col-xs-2 col-sm-1 text-center">
-	              <a><span class="glyphicon glyphicon-bell"></span></a>
+                <div class="dropdown">
+                  <a class="dropdown-toggle" type="button" id="dropdownNotifies" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="glyphicon glyphicon-bell"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownNotifies">
+                    <li class="dropdown-header">Ultime notifiche:</li>
+                    <li><a href="#">Notify 1</a></li>
+                    <li><a href="#">Notify 2</a></li>
+                    <li><a href="#">Notify 3</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Visualizza tutto</a></li>
+                    <li><a href="#">Segna come già lette</a></li>
+                  </ul>
+                </div>
+	              <a></a>
 	            </div>
 	          </div>
-	        </div> 
+	        </div>
 
     </header>
     <div class="content">
