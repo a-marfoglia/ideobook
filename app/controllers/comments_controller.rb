@@ -15,9 +15,9 @@ class CommentsController < ApplicationController
   private
     def comment_params
       hash_params = params.require(:comment).permit(:content).merge({
-                                          micropost_id: @micropost.id })
+                                         micropost_id: @micropost.id })
     end
-    
+
     def create_notification(comment)
       comment.micropost.comments.select(:user_id).distinct.each do |c|
         Notification.create( user_id: c.user_id,
@@ -25,8 +25,15 @@ class CommentsController < ApplicationController
                              comment_id: comment.id,
                              micropost_id: comment.micropost.id,
                              notice_type: 2
-                            )
-      #TODO: Possessore del micropost
+                            ) if comment.micropost.user.id != c.user_id &&
+                                 c.user_id != current_user.id
+
       end
+      Notification.create( user_id: comment.micropost.user.id,
+                           subscribed_user_id: current_user.id,
+                           comment_id: comment.id,
+                           micropost_id: comment.micropost.id,
+                           notice_type: 2
+                          ) if comment.micropost.user != current_user
     end
 end
