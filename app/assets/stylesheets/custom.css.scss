@@ -268,7 +268,7 @@ h6 { font-size: 24px; }
 #forum-main {
   header .crop-img {
     overflow-y: hidden;
-    height: 250px;
+    max-height: 250px;
     width: 100%;
   }
   .main-list, .side-list { padding: 0px 25px;}
