@@ -2,6 +2,7 @@ class Micropost < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :comments
+  has_many :notifications, dependent: :destroy
 
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true

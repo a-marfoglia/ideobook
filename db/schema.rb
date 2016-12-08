@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204144706) do
+ActiveRecord::Schema.define(version: 20161208111647) do
 
   create_table "categories", force: :cascade do |t|
     t.text     "name"
@@ -57,6 +57,24 @@ ActiveRecord::Schema.define(version: 20161204144706) do
   add_index "microposts", ["category_id"], name: "index_microposts_on_category_id"
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
   add_index "microposts", ["user_id"], name: "index_microposts_on_user_id"
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "subscribed_user_id"
+    t.integer  "comment_id"
+    t.integer  "notice_type"
+    t.boolean  "read"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "follow_id"
+    t.integer  "micropost_id"
+  end
+
+  add_index "notifications", ["comment_id"], name: "index_notifications_on_comment_id"
+  add_index "notifications", ["follow_id"], name: "index_notifications_on_follow_id"
+  add_index "notifications", ["micropost_id"], name: "index_notifications_on_micropost_id"
+  add_index "notifications", ["subscribed_user_id"], name: "index_notifications_on_subscribed_user_id"
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

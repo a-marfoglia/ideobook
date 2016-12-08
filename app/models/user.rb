@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   acts_as_follower
   has_many :microposts
   has_many :comments
+  has_many :notifications, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :username, presence: true, length: { maximum: 31 }

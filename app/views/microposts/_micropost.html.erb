@@ -1,4 +1,4 @@
-<li class="post cont-forum"> <%# TODO: Alberto %>
+<li class="post cont-forum">  
   <div class="row">
     <div class="col-xs-3 col-sm-2">
       <div class="avatar">
@@ -13,7 +13,7 @@
     <div class="col-xs-4 col-sm-3">
       <div class="border-left post-info text-center">
         <span class="glyphicon glyphicon-eye-open border-bottom"><%= micropost.views %></span>
-	      <span class="glyphicon glyphicon-thumbs-up border-bottom">10</span> <%# TODO: %>
+	      <span class="glyphicon glyphicon-thumbs-up border-bottom"><%= micropost.followers_count %></span>
         <span class="glyphicon glyphicon-comment border-bottom"><%= micropost.comments.count %></span>
         <span class="glyphicon glyphicon-time border-bottom"><%= time_ago_in_words(micropost.created_at) %></span>
       </div>
