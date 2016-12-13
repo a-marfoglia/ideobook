@@ -51,11 +51,18 @@
                 <div class="dropdown">
                   <a class="dropdown-toggle" type="button" id="dropdownNotifies" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     <span class="glyphicon glyphicon-bell">
-                      <span class="rw-number-notification">3</span>
+                      <span class="rw-number-notification"><%= current_user.notifications_num %></span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownNotifies">
                     <li class="dropdown-header">Ultime notifiche:</li>
+                    <% current_user.last_notifies(5).each do |n| %>
+                      <% if n.read == true %>
+                        <li><%= link_to "Testo", notification_path(n), class: "read" %></li>
+                      <% else %>
+                        <li><%= link_to "Testo", notification_path(n), class: "not-read" %></li>
+                      <% end %>
+                    <% end %>
                     <li><a href="#">Notify 1</a></li>
                     <li><a href="#">Notify 2</a></li>
                     <li><a href="#">Notify 3</a></li>
