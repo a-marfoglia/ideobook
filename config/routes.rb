@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
   resources :avatar_uploads, only: [:update]
-  resources :notifications, only: [:show, :edit]
+  resources :notifications, only: [:show, :index]
 end
