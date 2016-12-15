@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
+
   root 'static_pages#home'
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :users, only: [:show]
@@ -8,5 +10,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
   resources :avatar_uploads, only: [:update]
-  resources :notifications, only: [:show, :index]
+  resources :notifications, only: [:show, :index, :edit]
 end

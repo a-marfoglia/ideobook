@@ -324,7 +324,35 @@ h6 { font-size: 24px; }
   }
 }
 
+/* 2.1                 */
+/* Notifications rules */
 
+.notification-list {
+  list-style-type: none;
+  padding: 0;
+  .notification {
+    padding: 5px 10px;
+    background-color: #f2f2be;
+    a {
+      text-decoration: none;
+    }
+    img {
+      height: 50px;
+      width:  50px;
+      display: inline;
+    }
+    .notification-opts {
+      margin-left: 5px;
+    }
+  }
+  .read {
+    background-color: inherit;
+  }
+}
+
+/* End of Notifications rules*/
+
+/* 2.2                   */
 /* Navbar of forum rules */
 
 .f-navbar{
@@ -346,7 +374,7 @@ h6 { font-size: 24px; }
 
 /* end of Generic forum rules */
 
-/* 2.1             */
+/* 2.3             */
 /* Post list rules */
 .post-list {
   list-style-type: none;
@@ -376,7 +404,7 @@ h6 { font-size: 24px; }
 }
 /* end of Post list rules */
 
-/* 2.2             */
+/* 2.4             */
 /*  View rules */
 .view{
   height:$view-height;
@@ -404,7 +432,7 @@ h6 { font-size: 24px; }
 /* end of View rules */
 
 
-/* 2.3              */
+/* 2.5              */
 /*  New topic rules */
 .new-topic
 {
@@ -432,7 +460,7 @@ h6 { font-size: 24px; }
 }
 /*  end of new topic rules */
 
-/* 2.4                */
+/* 2.6                */
 /*  New profile rules */
 .profile{
   padding:10px;

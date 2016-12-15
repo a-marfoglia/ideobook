@@ -11,12 +11,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates :username, presence: true, length: { maximum: 31 }
   before_save { email.downcase! }
-  
+
   def notifications_num
     self.notifications.where(read: nil).count
   end
-  
-  def last_notifies(num)
+
+  def has_new_notifications?
+    (self.notifications_num > 0)
+  end
+
+  def last_notifications(num)
     self.notifications.first(num) if num > 0
   end
 end
