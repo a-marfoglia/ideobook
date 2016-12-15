@@ -60,18 +60,20 @@
                   <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownNotifies">
                     <li class="dropdown-header">Ultime notifiche:</li>
                     <% current_user.last_notifications(5).each do |n| %>
-                      <% if n.read == true %>
-                        <li><%= link_to "Testo", notification_path(n), class: "read" %></li>
-                      <% else %>
-                        <li><%= link_to "Testo", notification_path(n), class: "not-read" %></li>
-                      <% end %>
+                      <li class="dropdown-notification <%= n.read? ? '' : 'not-read'  %>">
+                        <%= link_to notification_path(n) do %>
+                        <div class="dropdown-avatar">
+                          <%= image_tag n.subscribed_user.avatar.thumb.url %>
+                        </div>
+                        <span class="dropdown-text">
+                          <%= n.to_s %>
+                        </span>
+                        <div class="clear-both"></div>
+                        <% end %>
+                      </li>
                     <% end %>
-                    <li><a href="#">Notify 1</a></li>
-                    <li><a href="#">Notify 2</a></li>
-                    <li><a href="#">Notify 3</a></li>
                     <li role="separator" class="divider"></li>
                     <li><%= link_to "Visualizza tutto", notifications_path %></li>
-                    <li><a href="#">Segna come già lette</a></li>
                   </ul>
                 </div>
 	              <a></a>

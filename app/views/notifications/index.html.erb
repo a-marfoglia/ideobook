@@ -1,7 +1,9 @@
-<h4>Notifiche</h4>
-<div class="container">
-  <ol class="notification-list">
-    <%= render @notifications %>
-  </ol>
-  <%= will_paginate @notifications %>
+<%= render layout: 'layouts/forum_layout' do %>
+  <div class="main-list">
+    <ol class="notification-list">
+      <%= render @notifications %>
+    </ol>
+    <%= will_paginate @notifications %>
+  </div>
 </div>
+<% end %>

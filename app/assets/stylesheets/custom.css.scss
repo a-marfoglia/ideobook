@@ -42,6 +42,12 @@ $view-height: 200px;
            user-select: none; /* Non-prefixed version, currently
                                  not supported by any browser */
 }
+
+@mixin box {
+    background-color:white;
+    border-radius: 0;
+    box-shadow: 0 1px 2px #c9cccd;
+}
 /* end of Mixins*/
 
 /* 0.3           */
@@ -239,8 +245,8 @@ h6 { font-size: 24px; }
 #profile {
   .user-avatar-container {
     position: relative;
-    height: 100px;
-    width: 100px;
+    height: auto;
+    width: 100%;
     margin-top:10px;
 
     span {
@@ -248,7 +254,8 @@ h6 { font-size: 24px; }
       top: 0;
       left: 0;
       display: none;
-      max-width: 100px;
+      max-width: 100%;
+      
 
       cursor: pointer;
       @include unselectable;
@@ -267,6 +274,7 @@ h6 { font-size: 24px; }
     @media only screen and (max-width: $screen-xs-max) {
       span{
         display: inline;
+        font-size: 12px;
       }
     }
   }
@@ -290,8 +298,7 @@ h6 { font-size: 24px; }
   .content { padding-top: 20px;  padding-bottom:20px; background-color: #e9e9e9;}
 
   .cont-forum{
-    background-color:white;
-    box-shadow: 0 1px 2px #c9cccd;
+    @include box;
   }
   textarea{
       border-radius: 0;
@@ -329,10 +336,11 @@ h6 { font-size: 24px; }
 
 .notification-list {
   list-style-type: none;
-  padding: 0;
+  padding: 0 15px;
   .notification {
-    padding: 5px 10px;
-    background-color: #f2f2be;
+    margin-top: 5px;
+    padding: 10px 20px;
+    @include box;
     a {
       text-decoration: none;
     }
@@ -342,11 +350,55 @@ h6 { font-size: 24px; }
       display: inline;
     }
     .notification-opts {
-      margin-left: 5px;
+      padding-left: 5px;
+      border-left: 1px solid $grey-light;
+      a {
+        display: block;
+      }
+      @media only screen and (max-width: $screen-xs-max) {
+        border-left: 0;
+        
+        a {
+          display: inline;
+          margin-left: 10px;
+          float: right;
+        }
+      }
     }
   }
-  .read {
-    background-color: inherit;
+  .not-read {
+    background-color: #fffbef;
+  }
+}
+
+.dropdown-menu {
+  width: 260px;
+  @media only screen and (min-width: $screen-sm-min) { width: 360px; }
+  .dropdown-notification {
+    padding: 2px 7px;
+    width: 100%;
+    a {
+      padding: 0;
+    }
+    .dropdown-avatar {
+      float: left;
+      width: 12%;
+      img {
+        height: auto;
+        width: 100%;
+      } 
+    }
+    .dropdown-text {
+      float: left;
+      padding-left: 5px;
+      white-space: normal;
+      width: 88%;
+      word-wrap: break-word;
+    }
+    .clear-both { clear: both;}
+  }
+  .not-read {
+    background-color: #fffdef;
   }
 }
 
@@ -461,7 +513,7 @@ h6 { font-size: 24px; }
 /*  end of new topic rules */
 
 /* 2.6                */
-/*  New profile rules */
+/* New profile rules  */
 .profile{
   padding:10px;
   p { margin-bottom:2px;}

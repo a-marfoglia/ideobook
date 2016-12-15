@@ -1,19 +1,30 @@
-<% html_class = "read" if notification.read == true %>
-<li class="notification <%= html_class %>">
-  <%= link_to subscribed_user_path = user_path(notification.subscribed_user) do %>
-    <%= image_tag notification.subscribed_user.avatar.thumb.url, class: 'img-circle' %>
-  <% end %>
+<% html_class = "not-read" if !notification.read %>
+<li class="row notification <%= html_class %>">
+  <div class="col-sm-10 col-xs-12">
+    <div class="row">
+      <div class="col-xs-3 col-sm-2">
+        <div class="avatar">
+          <%= link_to subscribed_user_path = user_path(notification.subscribed_user) do %>
+            <%= image_tag notification.subscribed_user.avatar.thumb.url, class: 'img-circle' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-9 col-sm-10">
+        <% if    notification.notice_type == 0 %>
+          <%= link_to notification.subscribed_user.username, subscribed_user_path %> ti sta seguendo!
+        <% elsif notification.notice_type == 1%>
+          <%= link_to notification.subscribed_user.username, subscribed_user_path %> ha messo mi piace al tuo post!
+        <% elsif notification.notice_type == 2%>
+          <%= link_to notification.subscribed_user.username, subscribed_user_path %> ha commentato questo post!
+        <% end %>
+      </div>
+    </div>
 
-  <% if    notification.notice_type == 0 %>
-    <%= link_to notification.subscribed_user.username, subscribed_user_path %> ti sta seguendo!
-  <% elsif notification.notice_type == 1%>
-    <%= link_to notification.subscribed_user.username, subscribed_user_path %> ha messo mi piace al tuo post!
-  <% elsif notification.notice_type == 2%>
-    <%= link_to notification.subscribed_user.username, subscribed_user_path %> ha commentato questo post!
-  <% end %>
 
-  <div class="notification-opts border-left pull-right">
-    <%= link_to "Visualizza", notification_path(notification) %> <br>
+  </div>
+
+  <div class="col-sm-2 col-xs-12 notification-opts">
+    <%= link_to "Visualizza", notification_path(notification) %>  
     <%= link_to "Segna come letta", edit_notification_path(notification, page: params[:page])%>
   </div>
 </li>

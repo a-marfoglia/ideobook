@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :index]
+  before_action :authenticate_user!, only: [:show, :index, :edit, :delete]
+  #TODO: correct_user
 
   def show
     @notification = Notification.find(params[:id])
@@ -9,7 +10,7 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = Notification.paginate(page: params[:page],
-                      per_page: 1).where(user_id: current_user.id)
+                      per_page: 20).where(user_id: current_user.id)
   end
 
   def edit

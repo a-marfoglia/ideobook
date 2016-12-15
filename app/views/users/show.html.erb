@@ -6,7 +6,7 @@
           <div class="row">
             <div class="col-xs-3">
               <div class="pull-right user-avatar-container">
-                <%= image_tag @user.avatar.small.url, alt: "Immagine del profilo"%>
+                <%= image_tag @user.avatar.small.url, alt: "Immagine del profilo", class: "img-responsive" %>
                 <% if current_user == @user %>
                   <span>Cambia immagine</span>
                   <%= form_for(current_user, url: avatar_upload_path(current_user)) do |f| %>
@@ -18,7 +18,14 @@
               </div>
             </div>
             <div class="col-xs-9">
-              <h6><%= @user.username %><span class="glyphicon glyphicon-cog pull-right"></span></h6>
+              <h6>
+                <%= @user.username %>
+                <% if current_user == @user %>
+                  <%= link_to "#" do %>
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                  <% end %>
+                <% end %>
+              </h6>
               <p>Nazionalità:</p>
               <p>Lettori:</p>
               <p>Genere preferito:</p>
