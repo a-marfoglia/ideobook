@@ -8,23 +8,28 @@
           <% end %>
       </div>
     </div>
-    <div class="margin-top">
-      <div class="col-xs-5 col-sm-8">
-        <% if    notification.notice_type == 0 %>
-          <%= link_to notification.subscribed_user.username, subscribed_user_path %> ti sta seguendo!
-        <% elsif notification.notice_type == 1%>
-          <%= link_to notification.subscribed_user.username, subscribed_user_path %> ha messo mi piace al tuo post!
-        <% elsif notification.notice_type == 2%>
-          <%= link_to notification.subscribed_user.username, subscribed_user_path %> ha commentato questo post!
-        <% end %>
-      </div>
-    </div>
-    <div class="col-xs-4 col-sm-2">
-      <div class="notification-opts border-left">
-        <div class="row">
-          <div class="col-xs-12"><%= link_to "Visualizza", notification_path(notification) %> </div>
-          <div class="col-xs-12"><%= link_to "Segna come letta", edit_notification_path(notification, page: params[:page])%></div>
+    <div class="col-xs-9 col-sm-10">
+      <div class="row padding-top">
+        <div class="col-xs-12 col-sm-8 col-md-10">
+          <div class="notify-text">
+            <% if    notification.notice_type == 0 %>
+              <%= link_to notification.subscribed_user.username, subscribed_user_path %> ti sta seguendo!
+            <% elsif notification.notice_type == 1%>
+              <%= link_to notification.subscribed_user.username, subscribed_user_path %> ha messo mi piace al tuo post!
+            <% elsif notification.notice_type == 2%>
+              <%= link_to notification.subscribed_user.username, subscribed_user_path %> ha commentato questo post!
+            <% end %>
+          </div>
         </div>
+        <div class="col-xs-12 col-sm-4 col-md-2">
+          <div class="notification-opts border-left">
+            <div class="row">
+              <div class="col-xs-4 col-sm-12"><%= link_to "Visualizza", notification_path(notification) %> </div>
+              <div class="col-xs-8 col-sm-12"><%= link_to "Segna come letta", edit_notification_path(notification, page: params[:page])%></div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -56,4 +61,34 @@
   <div class="col-sm-2 col-xs-12 notification-opts">
     <%= link_to "Visualizza", notification_path(notification) %>  
     <%= link_to "Segna come letta", edit_notification_path(notification, page: params[:page])%>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="margin-top">
+      <div class="col-xs-8">
+        <% if    notification.notice_type == 0 %>
+          <%= link_to notification.subscribed_user.username, subscribed_user_path %> ti sta seguendo!
+        <% elsif notification.notice_type == 1%>
+          <%= link_to notification.subscribed_user.username, subscribed_user_path %> ha messo mi piace al tuo post!
+        <% elsif notification.notice_type == 2%>
+          <%= link_to notification.subscribed_user.username, subscribed_user_path %> ha commentato questo post!
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-2">
+      <div class="notification-opts border-left">
+        <div class="row">
+          <div class="col-xs-2 col-sm-12"><%= link_to "Visualizza", notification_path(notification) %> </div>
+          <div class="col-xs-2 col-sm-12"><%= link_to "Segna come letta", edit_notification_path(notification, page: params[:page])%></div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
   </div>-->
