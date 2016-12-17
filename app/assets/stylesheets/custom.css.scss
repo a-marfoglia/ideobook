@@ -82,6 +82,8 @@ h6 { font-size: 24px; }
   #background{padding:0;}
 }
 
+ .btn-primary { @media only screen and (max-width: $screen-xs-max) { font-size:12px;}}
+
 /* Sticky footer */
 #wrap {
 	min-height: 100%;
@@ -155,6 +157,11 @@ h6 { font-size: 24px; }
     border-radius: 4px;
     box-shadow:1px 1px 1px silver;
 }
+
+.post-text, .comment-content{ 
+  word-wrap: break-word; 
+  white-space: normal;
+ }
 /* end of Generic rules */
 
 /* 0.4                       */
@@ -453,7 +460,6 @@ h6 { font-size: 24px; }
   .post {
     height: $post-height;
     margin-bottom: 10px;
-
     p { color: $grey-primary-text; }
 
     .post-info {
@@ -470,6 +476,10 @@ h6 { font-size: 24px; }
         color: $grey-text;
       }
     }
+    @media only screen and (max-width: $screen-xs-max){ 
+        .avatar p {font-size:11px;} 
+         .post-text {padding-right:0px;}
+      }
   }
 }
 /* end of Post list rules */
@@ -480,7 +490,10 @@ h6 { font-size: 24px; }
   height:$view-height;
   margin-bottom:10px;
 
-  p{ height:95px;}
+  p{ 
+    min-height:95px;
+    padding-right: 5px;
+  }
 
   .view-info{
     padding:8px;
@@ -497,7 +510,19 @@ h6 { font-size: 24px; }
     padding: 10px;
     height: 124px
   }
-}
+ }
+ 
+ .comments-list{
+  list-style:none;
+  .comment{
+    span { font-size: 13px; padding-right:5px;padding-bottom:5px;}
+    .comment-content{
+      min-height: 17px;
+      padding-right: 13%;
+    }
+  }
+ }
+ 
 
 /* end of View rules */
 
@@ -524,9 +549,7 @@ h6 { font-size: 24px; }
    }
   .new-title input,.new-category select{ height:40px;}
 
-   @media only screen and (max-width: $screen-xs-max){
-      padding: 10px;
-   }
+   @media only screen and (max-width: $screen-xs-max){ padding: 10px;}
 }
 /*  end of new topic rules */
 
@@ -550,9 +573,10 @@ h6 { font-size: 24px; }
 	  .profile-btn
 	  {
 	    margin-top:20px;
-	    a { padding:0;padding-right: 5.5px;}
+	    padding:10px 0px;
+	    a { padding:0; padding-right: 5.5px;}
 	  }
-	  p { font-size:13px;}
+	  a,p { font-size:12px;}
 	}
 }
 /*  end profile rules  */

@@ -10,11 +10,11 @@
               <p><%= link_to @micropost.user.username, @micropost.user %></p>
             </div>
           </div>
-          <div class="col-xs-9 col-sm-10">
-            <h6><%= @micropost.title %><span class="glyphicon glyphicon-thumbs-up pull-right"><%= @micropost.followers_count %></span></h6>
-            <p>
-              <%= @micropost.content %>
-            </p>
+          <div class="col-xs-9 col-sm-10 post-text">
+              <h6><%= @micropost.title %><span class="glyphicon glyphicon-thumbs-up pull-right"><%= @micropost.followers_count %></span></h6>
+              <p>
+                <%= @micropost.content %>
+              </p>
           </div>
           <div class="col-xs-12">
 	     <div class="border-top view-info">
@@ -53,7 +53,8 @@
           </div>
         </div>
        </div>
-       <div class="cont-forum comment-area">
+       <h6>Scrivi un commento</h6>
+       <div class="cont-forum comment-area">  
          <div class="row">
            <div class="col-xs-3 col-sm-2">
              <div class="avatar">
@@ -67,12 +68,11 @@
                  <%= f.text_area :content, placeholder: "Scrivi un commento...", class: 'form-control' %>
                  <%= f.submit "Invia commento", class:'btn btn-primary pull-right' %>
                <% end %>
-               <div class="comment-list">
-                <%= render @micropost.comments %>
-               </div>
            </div>
          </div>
        </div>
+       <h6>Lista commenti</h6>
+      <%= render @micropost.comments %>
      </div>
    </div>
   
@@ -87,44 +87,3 @@
 <div>
 <% end %>
 
-
- <!--<div class="post">
-      <div class="row">
-        <div class="col-xs-4">
-          <img style="height:50px;width:50px;"></img>
-          <%= link_to @micropost.user.username, @micropost.user %>
-        </div>
-        <div class="col-xs-6">
-          <h3><%= @micropost.title %></h3>
-          <%= @micropost.content %>
-        </div>
-        <div class="col-xs-2">
-          <div class="row">
-            <div class="col-xs-12">
-              <i class="glyphicon glyphicon-eye-open"></i> <%= @micropost.views %> Views
-            </div>
-            <div class="col-xs-12">
-              <i class="glyphicon glyphicon-time"></i> <%= time_ago_in_words(@micropost.created_at) %> ago
-            </div>
-            <div class="col-xs-12">
-              <% if @micropost.has_attachment? %>
-                <%= link_to "Scarica", @micropost.attachment.url %>
-              <% else %>
-                Nessun allegato
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="comment-area">
-      <%= form_for [@micropost, @comment] do |f| %>
-        <%= render 'layouts/error_messages', object: f.object %>
-        <%= f.text_area :content, placeholder: "Scrivi un commento...", class: 'form-control' %>
-        <%= f.submit "Invia commento" %>
-      <% end %>
-      <div class="comment-list">
-        <%= render @micropost.comments %>
-      </div>
-    </div>
-  </div>-->
