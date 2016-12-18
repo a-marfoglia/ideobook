@@ -1,0 +1,53 @@
+<aside class="col-xs-12 col-md-4">
+    <div class="main-list">
+      <div class="side-box">
+        <div class="border-bottom">
+          <h5>Categorie</h5>
+        </div>
+        <ul class="cats">
+          <% Category.all.each do |category| %>
+            <li><a href="#"><%= category.name %> <span class="badge pull-right"> <%= category.microposts.count %> </span></a></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="side-box">
+        <div class="border-bottom">
+          <div class="border-bottom">
+            <h5>Classifica racconti</h5>
+          </div>
+            <ul class="best-stories">
+              <li>
+                <div class="">
+                  <div class="avatar-ranking">
+                    <span>#1</span><img class="img-circle"></img>
+                  </div>
+                </div>
+                <div class="story-ranking">
+                  <h5>Titolo del racconto <span class="glyphicon glyphicon-thumbs-up pull-right">1020</span></h5>
+                </div>
+              </li>
+              <li>
+                <div class="">
+                  <div class="avatar-ranking">
+                    <span>#2</span><img class="img-circle"></img>
+                  </div>
+                </div>
+                <div class="story-ranking">
+                  <h5>Titolo del racconto <span class="glyphicon glyphicon-thumbs-up pull-right">1020</span></h5>
+                </div>
+              </li>
+              <li>
+                <div class="">
+                  <div class="avatar-ranking">
+                    <span>#3</span><img class="img-circle"></img>
+                  </div>
+                </div>
+                <div class="story-ranking">
+                  <h5>Titolo del racconto <span class="glyphicon glyphicon-thumbs-up pull-right">1020</span></h5>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </aside>

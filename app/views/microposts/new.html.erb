@@ -4,7 +4,7 @@
       <div class="main-list">
         <div class="cont-forum new-topic">
           <div class="row">
-            <div class="text-center"><h6>Condividi il tuo racconto</h6></div>
+            <div class="text-center"><h4>Condividi il tuo racconto</h4></div>
               <%= form_for @micropost do |f| %>
 	              <%= render 'layouts/error_messages', object: f.object %>
 	              <div class="col-xs-7 new-title">
@@ -34,14 +34,7 @@
            </div>
          </div>
       </div>
-    <aside class="col-xs-12 col-md-4">
-      <div class="side-list">
-        <h6>Amici</h6>
-      </div>
-      <div class="side-list">
-        <h6>Classifica racconti</h6>
-      </div>
-    </aside>
+    <%= render 'layouts/forum_sidebox' %>
   </div>
 <% end %>
 

@@ -11,7 +11,7 @@
             </div>
           </div>
           <div class="col-xs-9 col-sm-10 post-text">
-              <h6><%= @micropost.title %><span class="glyphicon glyphicon-thumbs-up pull-right"><%= @micropost.followers_count %></span></h6>
+              <h4><%= @micropost.title %><span class="glyphicon glyphicon-thumbs-up pull-right"><%= @micropost.followers_count %></span></h4>
               <p>
                 <%= @micropost.content %>
               </p>
@@ -53,7 +53,9 @@
           </div>
         </div>
        </div>
-       <h6>Scrivi un commento</h6>
+       <div class="padding-top">
+        <h4>Lascia un commento</h4>
+       </div>
        <div class="cont-forum comment-area">  
          <div class="row">
            <div class="col-xs-3 col-sm-2">
@@ -71,19 +73,13 @@
            </div>
          </div>
        </div>
-       <h6>Lista commenti</h6>
+       <h4>Lista commenti</h4>
       <%= render @micropost.comments %>
      </div>
    </div>
+   
+    <%= render 'layouts/forum_sidebox' %>
   
-  <aside class="col-xs-12 col-md-4">
-    <div class="side-list">
-      <h6>Amici</h6>
-    </div>
-    <div class="side-list">
-      <h6>Classifica racconti</h6>
-    </div>
-  </aside>
 <div>
 <% end %>
 
