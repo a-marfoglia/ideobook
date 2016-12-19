@@ -30,7 +30,7 @@
               <p>Lettori:</p>
               <p>Genere preferito:</p>
               <div class="profile-btn border-top text-center">
-                <% if current_user != @user %>
+                <% if current_user && current_user != @user %>
                   <% if !current_user.following?(@user) %>
                     <%= link_to "Segui", new_user_follow_path(id: @user.id), class: 'border-right' %>
                   <% else %>
