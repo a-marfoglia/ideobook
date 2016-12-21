@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :correct_user, only: [:destroy]
 
   def create
     @micropost = Micropost.find(params[:micropost_id])
@@ -11,11 +12,22 @@ class CommentsController < ApplicationController
       render 'microposts/show'
     end
   end
+  
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    micropost = @comment.micropost
+    redirect_to micropost
+  end
 
   private
     def comment_params
       hash_params = params.require(:comment).permit(:content).merge({
                                          micropost_id: @micropost.id })
+    end
+    
+    def correct_user
+      redirect_to root_path unless Comment.find(params[:id]).user == current_user
     end
 
     def create_notification(comment)

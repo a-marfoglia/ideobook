@@ -5,8 +5,8 @@
           <h5>Categorie</h5>
         </div>
         <ul class="cats">
-          <% Category.all.each do |category| %>
-            <li><a href="#"><%= category.name %> <span class="badge pull-right"> <%= category.microposts.count %> </span></a></li>
+          <% Category.all.each do |c| %>
+            <li><a href="#"><%= c.name %> <span class="badge pull-right"> <%= c.microposts.count %> </span></a></li>
           <% end %>
         </ul>
       </div>

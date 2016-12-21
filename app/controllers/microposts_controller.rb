@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @microposts = Micropost.paginate(page: params[:page], per_page: 10)
@@ -23,9 +24,27 @@ class MicropostsController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+    @micropost =  Micropost.find(params[:id])
+  end
+  
+  def update
+    @micropost = Micropost.find(params[:id])
+    if @micropost.update_attributes(micropost_params)
+      flash[:notice] =  "Post aggiornato con successo."
+      redirect_to @micropost
+    else
+      render 'edit'
+    end
+  end
 
   private
     def micropost_params
       params.require(:micropost).permit(:title, :content, :category_id, :attachment)
+    end
+    
+    def correct_user
+      redirect_to root_path unless Micropost.find(params[:id]).user == current_user
     end
 end

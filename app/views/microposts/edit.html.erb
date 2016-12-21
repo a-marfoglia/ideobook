@@ -1,0 +1,39 @@
+<%= render layout: 'layouts/forum_layout' do %>
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <div class="main-list">
+        <div class="cont-forum new-topic">
+          <div class="row">
+            <div class="text-center"><h4>Modifica il tuo racconto</h4></div>
+              <%= form_for @micropost do |f| %>
+	              <%= render 'layouts/error_messages', object: f.object %>
+	              <div class="col-xs-7 new-title">
+	                <%= f.text_field :title, class: 'form-control', placeholder: "Inserisci il titolo" %>
+	              </div>
+	              <div class="col-xs-5 new-category">
+	               <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Categoria" }, class: 'form-control' %>
+	              </div>
+	              <div class="col-xs-12 new-plot">
+	               <%= f.text_area :content, class: 'form-control', placeholder: "Inserisci la trama" %>
+	              </div>
+	              <div class="col-xs-6">
+	                <label class="btn btn-primary">
+	                  <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>Allega
+	                  <%= f.file_field :attachment, style: "display: none" %>
+	                </label>
+	                <span id="check_file" class="glyphicon glyphicon-check" data-toggle="popover"
+	                                    data-trigger="hover" data-content="Elimina allegato"
+	                                    style="display: none;">
+	                </span>
+	               </div>
+	               <div class="col-xs-6">
+	                 <%= f.submit "Pubblica", class: 'btn btn-primary pull-right' %>
+	               </div>
+	             <% end %>
+             </div>
+           </div>
+         </div>
+      </div>
+    <%= render 'layouts/forum_sidebox' %>
+  </div>
+<% end %>

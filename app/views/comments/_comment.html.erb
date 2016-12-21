@@ -1,22 +1,32 @@
-<div class="comment-container">
-  <ul class="comments-list">
-    <li>
-	    <div class="cont-forum comment">
-	      <div class="row">
-		      <div class="col-xs-3 col-sm-2">
-            <div class="avatar">
-              <%= image_tag @micropost.user.avatar.thumb.url, alt: "Immagine del profilo", class: "img-circle" %>
-              <h5><%= link_to @micropost.user.username, @micropost.user %></h5>
+<li>
+  <div class="cont-forum comment">
+    <div class="row">
+      <div class="col-xs-3 col-sm-2">
+        <div class="avatar">
+          <%= image_tag comment.user.avatar.thumb.url, alt: "Immagine del profilo", class: "img-circle" %>
+          <h5><%= link_to comment.user.username, comment.user %></h5>
+        </div>
+      </div>
+      <div class="col-xs-9 col-sm-10">
+        <div class="comment-content border-bottom">
+          <div class="row">
+            <div class="col-xs-10 col-sm-11">
+              <div class="padding-text">
+	              <%= comment.content %>
+	            </div>
+	          </div>
+            <div class="col-xs-2 col-sm-1">
+              <% if current_user && (comment.user == current_user) %>
+		              <%= link_to micropost_comment_path(comment.micropost, comment), method: 'delete',
+		                 data: { confirm: "Vuoi cancellare il commento?" } do %>
+		                 <span class="pull-right glyphicon glyphicon-remove"></span>
+		              <% end %>
+              <% end %>
             </div>
           </div>
-		      <div class="col-xs-9 col-sm-10">
-			      <div class="comment-content border-bottom">
-				      <%= comment.content %>
-			      </div>
-			      <span class="pull-right glyphicon glyphicon-time"><%= time_ago_in_words(comment.created_at) %></span>
-		      </div>
-		    </div>
-	    </div>
-    </li>
-  </ul>
- </div>
+        </div>
+        <span class="pull-right glyphicon glyphicon-time"><%= time_ago_in_words(comment.created_at) %></span>
+      </div>
+    </div>
+  </div>
+</li>
