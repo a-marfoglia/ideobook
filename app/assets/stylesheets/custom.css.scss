@@ -65,25 +65,25 @@ label{
 }
 
 h1 { font-size: 50px; }
-h2 { font-size: 35px; }
+h2 { font-size: 34px; }
 h3 { font-size: 27px; }
 h4 { font-size: 19px; }
 h5 { font-size: 15px; }
-h6 { font-size: 9px; }
+h6 { font-size: 13px; }
 
 @media only screen and (max-width: $screen-xs-max) {
   h1 { font-size: 31px; }
-  h2 { font-size: 25px; }
+  h2 { font-size: 24px; }
   h3 { font-size: 20px; }
-  h4 { font-size: 15px; }
-  h5 { font-size: 12px; }
-  h6 { font-size: 5px; }
+  h4 { font-size: 17px; }
+  h5 { font-size: 14px; }
+  h6 { font-size: 12px; }
 
   #background{padding:0;}
 }
 
  .btn-primary { @media only screen and (max-width: $screen-xs-max) { font-size:12px;}}
-
+ .disable { color: lightgray; cursor: auto!important;}
 /* Sticky footer */
 #wrap {
 	min-height: 100%;
@@ -159,7 +159,7 @@ h6 { font-size: 9px; }
     border-radius: 4px;
     box-shadow:1px 1px 1px silver;
 }
-
+.post-text h4 { font-weight: bold; }
 .post-text, .comment-content{ 
   word-wrap: break-word; 
   white-space: normal;
@@ -241,10 +241,20 @@ h6 { font-size: 9px; }
 /* Login and Signin rules */
 #sign-form{
   margin-top: 45px;
-
+  input,.inout-group, .input-group-addon{border-radius: 0;}
+  a{ display: inherit;}
   form, h2 {
     margin-left: 10px;
   }
+  
+   @media only screen and (max-width: $screen-xs-max) {
+      .link{
+        text-align:center;
+        margin:10px 0 10px 0; 
+        a{ display: inline; }
+        a:first-child { border-right: 1px solid $grey-light; padding-right: 5px;}
+     }
+   }
 }
 
 /* end of Login and Signin rules */
@@ -334,10 +344,20 @@ h6 { font-size: 9px; }
     ul,h5 { padding:10px; margin:0;}
     ul{ 
       list-style-type: none;
-      a{ text-decoration:none; }
+      a{ color:black; }
+      li{ 
+        span.badge{ 
+          font-size: 10px;
+          background-color: #9da6aa;
+        }
+      }
     }
     .best-stories{
-      li {margin-bottom:7px;}
+      li { padding-bottom:4px; margin-bottom:7px; border-bottom: 1px solid $grey-light; }
+      li:last-child{
+        border: none;
+        margin: 0;
+      }
       .avatar-ranking {
         float:left;
         padding-right:5px;
@@ -345,9 +365,10 @@ h6 { font-size: 9px; }
           width:34px;
           height:34px;
         }
-        span{ padding-right:10px;}
+        span { padding-right:10px;}
       }
-      .story-ranking span {font-size:13px; @media only screen and (max-width: $screen-xs-max) {font-size:10px;}}
+      .story-ranking {padding-top:1px;}
+      .story-ranking span { font-size:12px;  @media only screen and (max-width: $screen-xs-max) {font-size:10px;}}
     }
     .user-info{
       padding-left: 14px; 
@@ -497,14 +518,17 @@ h6 { font-size: 9px; }
 /*  View rules */
 .view{
   height:$view-height;
-  margin-bottom:10px;
+  margin-bottom:40px;
 
   p{ 
     min-height:95px;
     padding-right: 5px;
   }
 
-  .view-info{padding:8px;}
+  .view-info{
+    padding:8px;
+    .glyphicon {cursor: pointer;}
+   }
  
   h4 span{
     font-size:16px;
@@ -520,7 +544,7 @@ h6 { font-size: 9px; }
  
  .comments-list{
   list-style:none;
-  li {margin-bottom:10px;}
+  li { margin-bottom:10px;}
   .comment{
     span { font-size: 12px; padding:7px;}
     .comment-content{min-height: 68px;}
