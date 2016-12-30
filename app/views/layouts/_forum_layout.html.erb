@@ -31,9 +31,13 @@
 	              </ul>
 	            </div>
 	            <div class="col-xs-12 col-sm-5 col-md-4">
-	              <%= content_tag :div, class: 'input-group' do %>
-		              <input type="text" class="form-control" placeholder="Ricerca racconto..">
-		              <%= content_tag :span, (content_tag :i, nil, class: 'glyphicon glyphicon-search'), class: 'input-group-addon' %>
+                <%= form_for microposts_path, method: 'get', html: { class: 'input-group' } do |f| %>
+                  <%= text_field_tag :search, params[:search], class: 'form-control' %>
+                  <span class="input-group-btn">
+                     <%= button_tag class: 'btn btn-default' do %>
+                       <i class="glyphicon glyphicon-search"></i>
+                     <% end %>
+                  </span>
                 <% end %>
 	            </div>
 	            <div class="hidden-sm hidden-md hidden-lg col-xs-3">

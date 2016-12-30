@@ -78,14 +78,14 @@
           </div>
         </div>
        </div>
-       <% if current_user %>
+       <% if user_signed_in? %>
          <h4>Lascia un commento</h4>
          <div class="cont-forum comment-area">
            <div class="row">
              <div class="col-xs-3 col-sm-2">
                <div class="avatar">
-                 <%= image_tag @micropost.user.avatar.thumb.url, alt: "Immagine del profilo", class: "img-circle" %>
-                 <p><%= link_to @micropost.user.username, @micropost.user %></p>
+                 <%= image_tag current_user.avatar.thumb.url, alt: "Immagine del profilo", class: "img-circle" %>
+                 <p><%= link_to current_user.username, @micropost.user %></p>
                </div>
              </div>
              <div class="col-xs-9 col-sm-10">

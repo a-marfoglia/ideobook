@@ -14,7 +14,15 @@ class Micropost < ActiveRecord::Base
   validate  :attachment_size
   
   acts_as_followable
-
+  
+  def self.search(search)
+    if search
+      where(["title LIKE ?","%#{search}%"])
+    else
+      all
+    end
+  end
+      
   def increment_views
     self.increment :views
     self.save
