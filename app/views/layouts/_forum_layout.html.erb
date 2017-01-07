@@ -16,17 +16,17 @@
             	  <% end %>
 	            </div>
 	            <div class="hidden-xs hidden-sm col-md-3 dropdown">
-	              <a data-toggle="dropdown" href="#">Aggiunti di recente</a>
+	              <a data-toggle="dropdown" href="#">Storie più votate</a>
 	              <b class="caret"></b>
 	              <ul class="dropdown-menu" role="menu">
 		            <li role="presentation">
-		              <a role="menuitem" tabindex="-1" href="#">Aggiunti di recente</a>
+		              <a role="menuitem" tabindex="-1" href="#">Storie più votate</a>
 		            </li>
 		            <li role="presentation">
-		              <a role="menuitem" tabindex="-2" href="#">Più visti</a>
+		              <a role="menuitem" tabindex="-2" href="#">Storie più lette</a>
 		            </li>
 		            <li role="presentation">
-		              <a role="menuitem" tabindex="-3" href="#">Internazionali</a>
+		              <a role="menuitem" tabindex="-3" href="#">Aggiunti di recente</a>
 		            </li>
 	              </ul>
 	            </div>
@@ -34,8 +34,8 @@
                 <%= form_for microposts_path, method: 'get', html: { class: 'input-group' } do |f| %>
                   <%= text_field_tag :search, params[:search], class: 'form-control' %>
                   <span class="input-group-btn">
-                     <%= button_tag class: 'btn btn-default' do %>
-                       <i class="glyphicon glyphicon-search"></i>
+                     <%= button_tag class: 'btn btn-primary btn-search' do %>
+                        <i class="glyphicon glyphicon-search"></i>
                      <% end %>
                   </span>
                 <% end %>
