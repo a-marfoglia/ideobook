@@ -15,13 +15,6 @@ class Micropost < ActiveRecord::Base
   
   acts_as_followable
   
-  scope :top5,
-    select("followable_id,  count(*) AS followable_count").
-    where(followable_type: "Micropost").
-    joins(:microposts).
-    group(:followable_id).
-    order("followable_count DESC").
-    limit(5)  
   
   def self.search(search)
     if search
@@ -34,6 +27,16 @@ class Micropost < ActiveRecord::Base
   def increment_views
     self.increment :views
     self.save
+  end
+  
+  def self.top5
+    follow = Follow.select("  count(*) AS followable_count").
+    where(followable_type: "Micropost").
+    joins("INNER JOIN microposts ON follows.followable_id = microposts.id").
+    group(:followable_id).
+    order("followable_count DESC").
+    limit(5)
+    debugger
   end
   
 
