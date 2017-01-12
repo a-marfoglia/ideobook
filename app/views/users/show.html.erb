@@ -43,9 +43,23 @@
             </div>
           </div>
         </div>
+        <h4> Racconti utente </h4>
+        <% if @user.microposts.any? %>
+          <ul class="post-list">
+            <%= render @microposts %>
+          </ul>
+           <%= will_paginate @microposts,
+                previous_label: "<span class=\"glyphicon glyphicon-chevron-left\"
+                                  aria-hidden=\"true\"></span>",
+                next_label:     "<span class=\"glyphicon glyphicon-chevron-right\"
+                                  aria-hidden=\"true\"></span>",
+                inner_window: 2, outer_window: 0 %>
+        <% end %>
+        
        </div>
     </div>
     <%= render 'layouts/user_sidebox' %>
+
   </div>
 <% end %>
 
