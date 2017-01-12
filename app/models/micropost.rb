@@ -15,6 +15,14 @@ class Micropost < ActiveRecord::Base
   
   acts_as_followable
   
+  scope :top5,
+    select("followable_id,  count(*) AS followable_count").
+    where(followable_type: "Micropost").
+    joins(:microposts).
+    group(:followable_id).
+    order("followable_count DESC").
+    limit(5)  
+  
   def self.search(search)
     if search
       where(["title LIKE ?","%#{search}%"])
@@ -27,6 +35,7 @@ class Micropost < ActiveRecord::Base
     self.increment :views
     self.save
   end
+  
 
   def has_attachment?
     !self.attachment.file.nil?
