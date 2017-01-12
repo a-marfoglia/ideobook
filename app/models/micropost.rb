@@ -36,7 +36,6 @@ class Micropost < ActiveRecord::Base
     group(:followable_id).
     order("followable_count DESC").
     limit(5)
-    debugger
   end
   
 
