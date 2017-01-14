@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
 
   def index
     #@microposts = Micropost.search(params[:search])
-    @microposts = Micropost.search(params[:search]).paginate(page: params[:page], per_page: 10)
+    @microposts = Micropost.search(params[:search],params[:category]).paginate(page: params[:page], per_page: 10)
   end
 
   def show

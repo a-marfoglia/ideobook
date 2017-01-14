@@ -119,6 +119,12 @@ h6 { font-size: 13px; }
   margin-bottom: 10px;
 }
 
+  input,.input-group,.input-group-addon { border-radius: 0!important;}
+  .form-control:focus {
+    border-color: #AEAEAE;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(195, 195, 195, 0.6);
+   }
+
 .btn-wide {
   width: 100%;
 }
@@ -241,7 +247,6 @@ h6 { font-size: 13px; }
 /* Login and Signin rules */
 #sign-form{
   margin-top: 45px;
-  input,.inout-group, .input-group-addon{border-radius: 0;}
   a{ display: inherit;}
   form, h2 {
     margin-left: 10px;
@@ -469,7 +474,6 @@ h6 { font-size: 13px; }
 	.dropdown a { font-size:15px;}
 	span.glyphicon-bell { font-size:24px; }
 	.dropdown a, span.glyphicon-bell{ padding-top:4px; text-decoration:none; color:#2F2F2F;}
-	input ,span.input-group-addon { border-radius: 0;}
   .btn-search { height:34px; }
 	@media only screen and (max-width: $screen-md-max){ padding: 10px 60px; }
 	@media only screen and (max-width: $screen-xs-max)
@@ -593,7 +597,7 @@ h6 { font-size: 13px; }
   margin-bottom:20px;
   padding:10px;
   p { margin-bottom:2px;}
-  span { font-size:16px;}
+  span.glyphicon-cog{ cursor: pointer; font-size:16px; margin-top: -11px;}
   .profile-btn{
     padding: 8px;
     margin-top: 10px;
@@ -614,4 +618,33 @@ h6 { font-size: 13px; }
 	  a,p { font-size:12px;}
 	}
 }
+
+/*2.6.1 profile settings */
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+#profile-settings{
+  padding:10px 12px 20px 12px;
+  h4 { margin-bottom:20px; }
+  .input-group { margin-bottom:8px; }
+  .nav-pills {
+    li{width:90%;  margin:0; a { border-radius:0px;} }
+    li.active > a{ 
+      color: #5c5c5c;
+      background-color: #e9e9e9;
+    }
+  }
+  .tab-content { padding-left:60px; }
+}
+
+/* end profile settings */
+
 /*  end profile rules  */
+

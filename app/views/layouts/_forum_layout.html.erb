@@ -16,11 +16,13 @@
             	  <% end %>
 	            </div>
 	            <div class="hidden-xs hidden-sm col-md-3 dropdown">
-	              <a data-toggle="dropdown" href="#">Storie più votate</a>
+	              <!--<a data-toggle="dropdown" href="#">Storie più votate</a>-->
+	              <%= link_to "Storie più votate",{:controller => "microposts", :action => "index", :category=> 1}, {'data-toggle' => 'dropdwon'}%>
 	              <b class="caret"></b>
 	              <ul class="dropdown-menu" role="menu">
 		            <li role="presentation">
-		              <a role="menuitem" tabindex="-1" href="#">Storie più votate</a>
+		              <!--<a role="menuitem" tabindex="-1" href="#">Storie più votate</a>-->
+		              <%= link_to "Storie più votate",{:controller => "microposts", :action => "index", :category=> 1}, {'role' => 'menuitem','tabindex' => -1}%>
 		            </li>
 		            <li role="presentation">
 		              <a role="menuitem" tabindex="-2" href="#">Storie più lette</a>
@@ -31,10 +33,10 @@
 	              </ul>
 	            </div>
 	            <div class="col-xs-12 col-sm-5 col-md-4">
-                <%= form_for microposts_path, method: 'get', html: { class: 'input-group' } do |f| %>
+                <%= form_for microposts_path, url: "http://localhost:3000/microposts", method: 'get', html: { class: 'input-group' } do |f| %>
                   <%= text_field_tag :search, params[:search], class: 'form-control','autocomplete'=>'off' %>
-                  <span class="input-group-btn">
-                     <%= button_tag class: 'btn btn-primary btn-search' do %>
+                  <span class="input-group-btn">                   
+                      <%= button_tag class: 'btn btn-primary btn-search' do %>
                         <i class="glyphicon glyphicon-search"></i>
                      <% end %>
                   </span>

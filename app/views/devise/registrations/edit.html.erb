@@ -1,43 +1,118 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!--<%= resource_name.to_s.humanize %>-->
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
+<%= render layout: 'layouts/forum_layout' do %>
+<div class="row text-center">
+  <div class="col-sm-12 col-md-7 col-centered">
+    <div class="main-list">
+      <div id="profile-settings" class="cont-forum">
+        <h4 class="text-center" >Impostazioni utente</h4>
+        <div class = "row">
+          <div class = "col-xs-8">
+            <div class = "tab-content">
+              <div id="update-data" class="tab-pane fade in active">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <%= devise_error_messages! %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                <div class="input-group">
+                  <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder: "Nuovo username" %>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-ok"></i></span>
+                </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
+                
+                <div class="input-group">
+                  <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: "Password corrente" %>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                </div>
+                
+                  <%= button_tag class: "btn btn-primary pull-right" do %>
+                     <span class="glyphicon glyphicon-refresh"></span> Aggiorna 
+                  <% end %>
+              </div>
+              
+              <div id="update-password" class="tab-pane fade">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+		              <div class="input-group">
+                    <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Nuova password" %>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  </div>
+                 
+                  <div class="input-group">
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Conferma password" %>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-ok"></i></span>
+                  </div>
+                  
+                  <div class="input-group">
+                    <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: "Password corrente" %>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+                    <%= button_tag class: "btn btn-primary pull-right" do %>
+                       <span class="glyphicon glyphicon-refresh"></span> Aggiorna 
+                    <% end %>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+                <% end %>
+              </div>
+           </div>
+           
+          </div>
+          
+          
+          <div class="col-xs-4">
+            <ul class="nav nav-pills border-left">
+              <li class="active"><a data-toggle="tab" href="#update-data">Modifica dati</a> </li>
+              <li> <a data-toggle="tab" href="#update-password">Modifica password</a> </li>
+              <li ><%= link_to "Cancella utente", registration_path(resource_name), data: { confirm: "Sei sicuro?" }, method: :delete %></li>
+              <% end %>
+            </ul>
+          </div>
+          
+          </div>
+        </div>
+      </div>
+   </div>
+</div>
+
 <% end %>
 
-<h3>Cancel my account</h3>
+<script>
+  $('a[data-toggle="tab"][href="#update-data"]').on('shown.bs.tab', function (e) {
+    $( document ).find('#update-password input[type="password"]').val('');
+  })
+  $(document).ready(function(){
+    $('.input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      language: "it",
+      autoclose: true,
+      todayHighlight: true
+    });
+  });
+</script>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

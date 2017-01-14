@@ -16,11 +16,14 @@ class Micropost < ActiveRecord::Base
   acts_as_followable
   
   
-  def self.search(search)
+  def self.search(search,category)
     if search
       where(["title LIKE ?","%#{search}%"])
-    else
-      all
+    else if category
+        where(["category_id LIKE ?","%#{category}%"])  
+      else
+        all
+      end
     end
   end
       

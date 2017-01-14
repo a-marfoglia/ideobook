@@ -21,12 +21,13 @@
               <h4>
                 <%= @user.username %>
                 <% if current_user == @user %>
-                  <%= link_to "#" do %>
+                  <%= link_to edit_user_registration_path(id: @user.id) do %>
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                   <% end %>
                 <% end %>
               </h4>
               <p>Nazionalità:</p>
+              
               <p>Lettori:</p>
               <p>Genere preferito:</p>
               <div class="profile-btn border-top text-center">

@@ -10,7 +10,7 @@
         </div>
         <ul class="cats">
           <% Category.all.each do |c| %>
-            <li><a href="#"><%= c.name %> <span class="badge pull-right"> <%= c.microposts.count %> </span></a></li>
+            <li><%= link_to c.name,{:controller => "microposts", :action => "index", :category=> c.id}%><span class="badge pull-right"> <%= c.microposts.count %> </span></a></li>
           <% end %>
         </ul>
       </div>
