@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117123338) do
+ActiveRecord::Schema.define(version: 20161208111647) do
 
   create_table "categories", force: :cascade do |t|
     t.text     "name"
@@ -30,13 +30,6 @@ ActiveRecord::Schema.define(version: 20170117123338) do
   add_index "comments", ["micropost_id"], name: "index_comments_on_micropost_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
-  create_table "conversations", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",                   null: false
     t.string   "followable_type",                 null: false
@@ -49,17 +42,6 @@ ActiveRecord::Schema.define(version: 20170117123338) do
 
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
-
-  create_table "messages", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "conversation_id"
-    t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "microposts", force: :cascade do |t|
     t.text     "title"

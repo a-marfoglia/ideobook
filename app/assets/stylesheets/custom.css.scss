@@ -115,6 +115,25 @@ h6 { font-size: 13px; }
 
 .padding-top{ padding-top:10px;}
 
+ .main-list .pagination ul.pagination {
+    a { padding: 4px 10px; margin-right:5px; color: #989898;}
+    li.active a { 
+      background-color: #d8d8d8;
+      border-color: #b4b4b4;
+      cursor: default;
+      color: #3e3c3c; 
+     }
+     
+     li.prev a, li.next a{
+      background-color: Transparent;
+      background-repeat:no-repeat;
+      border: none;
+      cursor:pointer;
+      overflow: hidden;
+      outline:none;
+    }
+  } 
+
 .field {
   margin-bottom: 10px;
 }
@@ -553,10 +572,10 @@ h6 { font-size: 13px; }
     padding:8px;
     .glyphicon {cursor: pointer;}
    }
- 
-  h4 span{
-    font-size:16px;
-    padding-right:20px;
+  h4 span.glyphicon { font-size:14px; }
+  h4 span.glyphicon-remove{
+    padding-right:10px;
+    padding-left:5px;
   }
 }
 

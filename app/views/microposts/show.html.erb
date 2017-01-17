@@ -13,11 +13,14 @@
           <div class="col-xs-9 col-sm-10 post-text">
               <h4>
                 <%= @micropost.title %>
-                <% if user_signed_in? && current_user == @micropost.user %>
+                <% if user_signed_in? && current_user == @micropost.user %> 
+		              <%= link_to micropost_path(@micropost), :method => :delete, data: { confirm: "La tua storia verrà rimossa. Sei sicuro?" } do %>
+                    <span class="glyphicon glyphicon-remove pull-right border-left"></span></a>
+		              <% end %>
                   <%= link_to edit_micropost_path(@micropost) do %>
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                   <% end %>
-                <% end %>
+              <% end %>
               </h4>
               <p>
                 <%= @micropost.content %>

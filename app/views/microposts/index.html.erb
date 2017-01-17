@@ -9,13 +9,13 @@
         <% else %>
           <h6>Non ci sono topic da visualizzare</h6>
         <% end %>
-        <div class="pull-right">
+        <div class="text-center">
           <%= will_paginate @microposts,
                 previous_label: "<span class=\"glyphicon glyphicon-chevron-left\"
                                   aria-hidden=\"true\"></span>",
                 next_label:     "<span class=\"glyphicon glyphicon-chevron-right\"
-                                  aria-hidden=\"true\"></span>",
-                inner_window: 2, outer_window: 0 %>
+                                  aria-hidden=\"true\"></span>"%>
+                <!--inner_window: 0, outer_window: 0 %>-->
         </div>
       </div>
     </div>

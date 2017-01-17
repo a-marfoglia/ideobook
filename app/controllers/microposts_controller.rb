@@ -41,9 +41,9 @@ class MicropostsController < ApplicationController
   end
   
   def destroy
+    @micropost = Micropost.find(params[:id])
     @micropost.destroy
-    flash[:success] = "Micropost deleted"
-    redirect_to request.referrer || root_url
+    redirect_to '/microposts', :notice => "La tua storia è stata rimossa"
   end
 
   private
