@@ -15,7 +15,7 @@
                password_confirmation: password)
 end
 
-category = Category.create!(name: "test")
+category = Category.create!(name: "Test")
 id = category.id
 
 users = User.order(:created_at).take(6)

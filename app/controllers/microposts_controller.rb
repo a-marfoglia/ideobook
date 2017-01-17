@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :correct_user, only: [:edit, :update]
-
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
   def index
     #@microposts = Micropost.search(params[:search])
     @microposts = Micropost.search(params[:search],params[:category]).paginate(page: params[:page], per_page: 10)
@@ -38,6 +38,12 @@ class MicropostsController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def destroy
+    @micropost.destroy
+    flash[:success] = "Micropost deleted"
+    redirect_to request.referrer || root_url
   end
 
   private

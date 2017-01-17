@@ -4,12 +4,13 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   acts_as_followable
   acts_as_follower
-  has_many :microposts
-  has_many :comments
+  has_many :microposts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :username, presence: true, length: { maximum: 31 }
+  validates :username, presence: true, length: { maximum: 31 }  
   before_save { email.downcase! }
 
   def notifications_num
@@ -23,4 +24,5 @@ class User < ActiveRecord::Base
   def last_notifications(num)
     self.notifications.first(num) if num > 0
   end
+  
 end

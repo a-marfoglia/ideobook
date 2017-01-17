@@ -16,7 +16,7 @@
 	              <div class="col-xs-12 new-plot">
 	               <%= f.text_area :content, class: 'form-control', placeholder: "Inserisci la trama" %>
 	              </div>
-	              <div class="col-xs-6">
+	              <div class="col-xs-4">
 	                <label class="btn btn-primary">
 	                  <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>Allega
 	                  <%= f.file_field :attachment, style: "display: none" %>
@@ -26,7 +26,7 @@
 	                                    style="display: none;">
 	                </span>
 	               </div>
-	               <div class="col-xs-6">
+	               <div class="col-xs-4">
 	                 <%= f.submit "Pubblica", class: 'btn btn-primary pull-right' %>
 	               </div>
 	             <% end %>

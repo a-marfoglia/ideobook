@@ -15,22 +15,21 @@
             	    <%= image_tag image_path('logo.jpg')%>
             	  <% end %>
 	            </div>
+              
 	            <div class="hidden-xs hidden-sm col-md-3 dropdown">
-	              <!--<a data-toggle="dropdown" href="#">Storie più votate</a>-->
-	              <%= link_to "Storie più votate",{:controller => "microposts", :action => "index", :category=> 1}, {'data-toggle' => 'dropdwon'}%>
+	              <a id="current_page" data-toggle="dropdown" href="#">Ordina le storie</a>
 	              <b class="caret"></b>
-	              <ul class="dropdown-menu" role="menu">
-		            <li role="presentation">
-		              <!--<a role="menuitem" tabindex="-1" href="#">Storie più votate</a>-->
-		              <%= link_to "Storie più votate",{:controller => "microposts", :action => "index", :category=> 1}, {'role' => 'menuitem','tabindex' => -1}%>
-		            </li>
-		            <li role="presentation">
-		              <a role="menuitem" tabindex="-2" href="#">Storie più lette</a>
-		            </li>
-		            <li role="presentation">
-		              <a role="menuitem" tabindex="-3" href="#">Aggiunti di recente</a>
-		            </li>
-	              </ul>
+	              <ul id="dropmenu" class="dropdown-menu" role="menu">
+		              <li class="border-bottom" role="presentation">
+		                <%= link_to "Le più votate",{:controller => "microposts", :action => "index", :category=> 1}, {'role' => 'menuitem','tabindex' => -1}%>
+		              </li>
+		              <li class="border-bottom" role="presentation">
+		                <%= link_to "Le più lette",{:controller => "microposts", :action => "index", :category=> 1}, {'role' => 'menuitem','tabindex' => -1}%>
+		              </li>
+		              <li role="presentation">
+		                <%= link_to "Le più recenti",{:controller => "microposts", :action => "index", :category=> 1}, {'role' => 'menuitem','tabindex' => -1}%>
+		              </li>
+	              </ul>         
 	            </div>
 	            <div class="col-xs-12 col-sm-5 col-md-4">
                 <%= form_for microposts_path, url: "http://localhost:3000/microposts", method: 'get', html: { class: 'input-group' } do |f| %>
@@ -94,3 +93,10 @@
     </div>
   </section>
 </div>
+
+<!--<script>
+$("#dropmenu a").click(function(event){
+  //event.preventDefault(); //prevent synchronous loading
+  $("#current_page").html($(this).text());
+});
+</script>-->
