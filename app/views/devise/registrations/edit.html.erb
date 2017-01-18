@@ -18,6 +18,14 @@
                   <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder: "Nuovo username" %>
                   <span class="input-group-addon"><i class="glyphicon glyphicon-ok"></i></span>
                 </div>
+                <!--<div class="input-group">
+                  <%#= f.text_field :occupation, class: 'form-control', placeholder: "Occupazione" %>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase" ar></i></span>
+                </div>
+                <div class="input-group date">
+                  <%#= f.date_field :birth_date, class: 'form-control datepicker', placeholder: "Data di nascita"  %>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-th" ar></i></span>
+                </div>-->
 
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                   <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -59,10 +67,7 @@
                 <% end %>
               </div>
            </div>
-           
           </div>
-          
-          
           <div class="col-xs-12 col-sm-4">
             <ul class="nav nav-pills border-left">
               <li class="active"><a data-toggle="tab" href="#update-data">Modifica dati</a> </li>

@@ -25,4 +25,23 @@ class User < ActiveRecord::Base
     self.notifications.first(num) if num > 0
   end
   
+  def favourite_category
+    counting = Hash.new
+    # Counts all the categories
+    self.microposts.each do |micropost|
+      counting[micropost.category_id] ||= 1
+      counting[micropost.category_id] += 1
+    end
+
+    favourite_category_key = 0
+    counting.each do |key, value|
+      highest ||= value
+      favourite_category_key =  favourite_category_key == 0 ? key : favourite_category_key
+      favourite_category_key = value > highest ? key : favourite_category_key
+    end
+    return nil if favourite_category_key == 0
+    favourite_category_key
+  end
+  
+  
 end
