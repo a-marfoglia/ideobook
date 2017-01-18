@@ -10,7 +10,7 @@
         <div class = "row">
           <div class = "col-xs-12 col-sm-8">
             <div class = "tab-content">
-              <div id="update-data" class="tab-pane fade in active">
+              <div role="tabpanel" class="tab-pane active" id="update-data"">
                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                 <%= devise_error_messages! %>
 
@@ -18,14 +18,14 @@
                   <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder: "Nuovo username" %>
                   <span class="input-group-addon"><i class="glyphicon glyphicon-ok"></i></span>
                 </div>
-                <!--<div class="input-group">
-                  <%#= f.text_field :occupation, class: 'form-control', placeholder: "Occupazione" %>
+                <div class="input-group">
+                  <%= f.text_field :occupation, class: 'form-control', placeholder: "Occupazione" %>
                   <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase" ar></i></span>
                 </div>
-                <div class="input-group date">
-                  <%#= f.date_field :birth_date, class: 'form-control datepicker', placeholder: "Data di nascita"  %>
+                <div class="input-group">
+                  <%= f.date_field :birth_date,id: 'datepicker', class: 'form-control datepicker', placeholder: "Data di nascita"  %>
                   <span class="input-group-addon"><i class="glyphicon glyphicon-th" ar></i></span>
-                </div>-->
+                </div>
 
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                   <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -86,22 +86,10 @@
 <% end %>
 
 <script>
-  $('a[data-toggle="tab"][href="#update-data"]').on('shown.bs.tab', function (e) {
-    $( document ).find('#update-password input[type="password"]').val('');
-  })
-  $(document).ready(function(){
-    $('.input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      language: "it",
-      autoclose: true,
-      todayHighlight: true
-    });
-  });
+  $( function() {
+    $( "#datepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
+  } );
 </script>
-
-
-
-
 
 
 
