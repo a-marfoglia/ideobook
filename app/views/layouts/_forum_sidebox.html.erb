@@ -1,7 +1,3 @@
-<%# follow_ids = Follow.where(followable_type: "Micropost").group(:followable_id).count.order(:followable_id_count) %>
-
-
-
 <aside class="col-xs-12 col-md-4">
     <div class="main-list">
       <div class="side-box">
@@ -10,8 +6,8 @@
         </div>
         <ul class="cats">
           <% Category.all.each do |c| %>
-            <li><%= link_to c.name,{:controller => "microposts", :action => "index", :category=> c.id}%><span class="badge pull-right"> <%= c.microposts.count %> </span></a></li>
-          <% end %>
+            <li><%= link_to c.name, controller: "microposts", action: "index", category: c.id %><span class="badge pull-right"> <%= c.microposts.count %> </span></a></li>
+            <% end %>
         </ul>
       </div>
       <div class="side-box">
@@ -19,30 +15,18 @@
           <h5>Classifica racconti</h5>
         </div>
         <ul class="best-stories">
-          <li>
-            <div class="avatar-ranking">
-              <span>#1</span><img alt="Immagine del profilo" class="img-circle" src="/assets/fallback/thumb_default_profile_picture-7e83bd3bc5785de84fe264195efaec811b25de4d497e105e867cdb89fb53c141.png"></img>
-            </div>
-            <div class="story-ranking">
-              <h6>Titolo del racconto <span class="glyphicon glyphicon-thumbs-up pull-right">1020</span></h6>
-            </div>
-          </li>
-          <li>
-            <div class="avatar-ranking">
-              <span>#2</span><img alt="Immagine del profilo" class="img-circle" src="/assets/fallback/thumb_default_profile_picture-7e83bd3bc5785de84fe264195efaec811b25de4d497e105e867cdb89fb53c141.png"></img>
-            </div>
-            <div class="story-ranking">
-              <h6>Titolo del racconto <span class="glyphicon glyphicon-thumbs-up pull-right">1020</span></h6>
-            </div>
-          </li>
-          <li>
-            <div class="avatar-ranking">
-              <span>#3</span><img alt="Immagine del profilo" class="img-circle" src="/assets/fallback/thumb_default_profile_picture-7e83bd3bc5785de84fe264195efaec811b25de4d497e105e867cdb89fb53c141.png"></img>
-            </div>
-            <div class="story-ranking">
-              <h6>Titolo del racconto <span class="glyphicon glyphicon-thumbs-up pull-right">1020</span></h6>
-            </div>
-          </li>
+          <% i = 0 %>
+          <% Micropost.top5.each do |t| %>
+            <li>
+              <div class="avatar-ranking">
+                <span>#<%= i += 1 %></span>
+                <%= image_tag User.find(t["user_id"]).avatar.small.url, alt: "Immagine del profilo", class: "img-circle" %>
+              </div>
+              <div class="story-ranking">
+                <h6><%= t["title"] %><span class="glyphicon glyphicon-thumbs-up pull-right"><%= t["num"] %></span></h6>
+              </div>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

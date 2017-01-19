@@ -33,16 +33,16 @@ class Micropost < ActiveRecord::Base
   end
   
   def self.top5
-    follow = Follow.select("followable_id").
-    where(followable_type: "Micropost").
-    #joins("INNER JOIN microposts ON follows.followable_id = microposts.id").
-    group("followable_id").
-    limit(5).
-    count()
-    follow.each do |key, value|
-      
-    end
-    #order("followable_count DESC").
+    ActiveRecord::Base.connection.exec_query("\
+      SELECT users.id AS user_id, microposts.id AS micropost_id,\
+             microposts.title, COUNT(*) AS num FROM microposts\
+      JOIN follows ON follows.followable_id = microposts.id\
+      JOIN users ON users.id = microposts.user_id\
+      WHERE follows.followable_type = 'Micropost'\
+      GROUP BY microposts.id\
+      ORDER BY num DESC\
+      LIMIT 5")
+      #Micropost.select('title', 'user_id', 'COUNT(*) as total').first.total
   end
   
 

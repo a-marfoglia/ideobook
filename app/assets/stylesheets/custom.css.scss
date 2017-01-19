@@ -132,6 +132,12 @@ h6 { font-size: 13px; }
       overflow: hidden;
       outline:none;
     }
+    
+    @media only screen and (max-width: $screen-xs-max){
+       li { display:none; }
+       li.next,li.active,li.prev { display:inline; }
+       li:last-child { color: red;}
+	  }
   } 
 
 .field {
@@ -184,7 +190,10 @@ h6 { font-size: 13px; }
     border-radius: 4px;
     box-shadow:1px 1px 1px silver;
 }
-.post-text h4 { font-weight: bold; }
+.post-text {
+  a { color: #2F2F2F;}
+  h4 { font-weight: bold; }
+ }
 .post-text, .comment-content{ 
   word-wrap: break-word; 
   white-space: normal;
@@ -419,6 +428,7 @@ h6 { font-size: 13px; }
     }
     @media only screen and (max-width: $screen-xs-max) {
       margin-bottom: 0px; margin-top: 30px;
+      .user-info span.glyphicon { margin-left:8px; }
      }
   }
 

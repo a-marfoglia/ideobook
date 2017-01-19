@@ -22,3 +22,25 @@
     <%= render 'layouts/forum_sidebox' %>
   </div>
 <% end %>
+
+<script>
+  $(document).ready(function(){
+      var x = $('li.active').index();
+      var j = $('li.next').index()-1;
+      var arrivo = x+3;
+      var partenza = x-1;
+      
+      if (x == 1){
+        partenza=x;
+        arrivo=x+5;
+      } 
+      else if (x == 2){ arrivo=x+4; }
+      else if (x == (j-1)){ partenza=x-2 }
+      else if (x == j){
+        partenza=x-3;
+        arrivo=x;
+      }
+        
+      $(".main-list .pagination ul.pagination li:nth-child(n+"+partenza+"):nth-child(-n+"+arrivo+")").css("display", "inline");
+  });
+</script>
