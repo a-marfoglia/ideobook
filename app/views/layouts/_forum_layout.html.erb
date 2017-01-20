@@ -21,13 +21,13 @@
 	              <b class="caret"></b>
 	              <ul id="dropmenu" class="dropdown-menu" role="menu">
 		              <li class="border-bottom" role="presentation">
-		                <%= link_to "Le più votate",{:controller => "microposts", :action => "index", :category=> 1}, {'role' => 'menuitem','tabindex' => -1}%>
+		                <%= link_to "Le più votate",{controller: "microposts", action: "index", like: 1}, {'role' => 'menuitem','tabindex' => -1}%>
 		              </li>
 		              <li class="border-bottom" role="presentation">
-		                <%= link_to "Le più lette",{:controller => "microposts", :action => "index", :category=> 1}, {'role' => 'menuitem','tabindex' => -1}%>
+		                <%= link_to "Le più lette",{controller: "microposts", action: "index", read: 1}, {'role' => 'menuitem','tabindex' => -1}%>
 		              </li>
 		              <li role="presentation">
-		                <%= link_to "Le più recenti",{:controller => "microposts", :action => "index", :category=> 1}, {'role' => 'menuitem','tabindex' => -1}%>
+		                <%= link_to "Le più recenti",{controller: "microposts", action: "index"}, {'role' => 'menuitem','tabindex' => -1}%>
 		              </li>
 	              </ul>         
 	            </div>

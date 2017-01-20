@@ -4,7 +4,7 @@ class Micropost < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
-  default_scope -> { order(created_at: :desc) }
+  #default_scope -> { order(views: :desc) }
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 30 }
   validates :content, presence: true, length: { maximum: 300 }
@@ -16,14 +16,16 @@ class Micropost < ActiveRecord::Base
   acts_as_followable
   
   
-  def self.search(search,category)
+  def self.search(search,category,read,like)
     if search
-      where(["title LIKE ?","%#{search}%"])
-    else if category
-        where(["category_id LIKE ?","%#{category}%"])  
-      else
-        all
-      end
+      joins(:user).where(["microposts.title LIKE ? OR users.username LIKE ?","%#{search}%","%#{search}%"]).order(created_at: :desc)
+    elsif category
+        where(["category_id LIKE ?","%#{category}%"]).order(created_at: :desc)  
+    elsif read
+        order(views: :desc)
+    elsif like
+    else
+       order(created_at: :desc)
     end
   end
       
