@@ -20,13 +20,17 @@ class Micropost < ActiveRecord::Base
     if search
       joins(:user).where(["microposts.title LIKE ? OR users.username LIKE ?","%#{search}%","%#{search}%"]).order(created_at: :desc)
     elsif category
-        where(["category_id LIKE ?","%#{category}%"]).order(created_at: :desc)
+      where(["category_id LIKE ?","%#{category}%"]).order(created_at: :desc)
     elsif read
-        order(views: :desc)
+      order(views: :desc)
     elsif like
-      
+      select("*", "COUNT(follows.followable_id) as num")
+      .joins("LEFT JOIN follows ON follows.followable_id = microposts.id")
+      .where("follows.followable_type = 'Micropost' OR follows.followable_type IS NULL")
+      .group("microposts.id")
+      .order("num DESC")
     else
-       order(created_at: :desc)
+      order(created_at: :desc)
     end
   end
 
