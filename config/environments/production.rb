@@ -78,20 +78,19 @@ Rails.application.configure do
   
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
-  config.action_mailer.default_url_options = { host: 'ideobook.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.smtp_settings = {
-     :address => "smtp.gmail.com",
-     :port => 587,
-     :authentication => :plain,   # I've also tried :login
-     :enable_starttls_auto => true,  # Also tried tls => true
-     :user_name => 'grupponet4c@gmail.com',
-     :password => 'informatica4c',
-     :domain         => 'heroku.com',
-     :enable_starttls_auto => true
-   }
+config.action_mailer.default_url_options = { :host => 'ideobook.herokuapp.com' }  
+config.action_mailer.delivery_method = :smtp  
+config.action_mailer.perform_deliveries = true  
+config.action_mailer.raise_delivery_errors = true  
+config.action_mailer.default :charset => "utf-8"  
+config.action_mailer.smtp_settings = {  
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: "ideobook.herokuapp.com",
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: 'grupponet4c@gmail.com',
+  password: 'informatica4c'
+}
   
 end
