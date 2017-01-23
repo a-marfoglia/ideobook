@@ -24,6 +24,7 @@ class Micropost < ActiveRecord::Base
     elsif read
         order(views: :desc)
     elsif like
+      
     else
        order(created_at: :desc)
     end
