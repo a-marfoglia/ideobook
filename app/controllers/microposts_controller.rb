@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  
+
   def index
     #@microposts = Micropost.search(params[:search])
     @microposts = Micropost.search(params[:search],params[:category],params[:read],params[:like]).paginate(page: params[:page], per_page: 10)
@@ -25,11 +25,11 @@ class MicropostsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
     @micropost =  Micropost.find(params[:id])
   end
-  
+
   def update
     @micropost = Micropost.find(params[:id])
     if @micropost.update_attributes(micropost_params)
@@ -39,7 +39,7 @@ class MicropostsController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def destroy
     @micropost = Micropost.find(params[:id])
     @micropost.destroy
@@ -50,7 +50,7 @@ class MicropostsController < ApplicationController
     def micropost_params
       params.require(:micropost).permit(:title, :content, :category_id, :attachment)
     end
-    
+
     def correct_user
       redirect_to root_path unless Micropost.find(params[:id]).user == current_user
     end

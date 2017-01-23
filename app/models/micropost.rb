@@ -24,7 +24,9 @@ class Micropost < ActiveRecord::Base
     elsif read
       order(views: :desc)
     elsif like
-      select("*", "COUNT(follows.followable_id) as num")
+      select("microposts.id", "microposts.title", "microposts.user_id",
+             "microposts.content", "microposts.views", "microposts.created_at",
+             "COUNT(follows.followable_id) as num")
       .joins("LEFT JOIN follows ON follows.followable_id = microposts.id")
       .where("follows.followable_type = 'Micropost' OR follows.followable_type IS NULL")
       .group("microposts.id")
@@ -51,7 +53,7 @@ class Micropost < ActiveRecord::Base
       ORDER BY num DESC\
       LIMIT 5")
 =end
-    Micropost.select("*", "COUNT(follows.followable_id) as num")
+    Micropost.select("microposts.id, microposts.title, microposts.user_id", "COUNT(follows.followable_id) as num")
     .joins("LEFT JOIN follows ON follows.followable_id = microposts.id")
     .where("follows.followable_type = 'Micropost' OR follows.followable_type IS NULL")
     .group("microposts.id")

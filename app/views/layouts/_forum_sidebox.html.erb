@@ -22,7 +22,7 @@
                 <%= image_tag m.user.avatar.small.url, alt: "Immagine del profilo", class: "img-circle" %>
               </div>
               <div class="story-ranking">
-                <h6><%= m.title %><span class="glyphicon glyphicon-thumbs-up pull-right"><%= m.num %></span></h6>
+                <h6><%= link_to m.title, m %><span class="glyphicon glyphicon-thumbs-up pull-right"><%= m.num %></span></h6>
               </div>
             </li>
           <% end %>
