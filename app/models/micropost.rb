@@ -56,7 +56,7 @@ class Micropost < ActiveRecord::Base
     Micropost.select("microposts.id, microposts.title, microposts.user_id", "COUNT(follows.followable_id) as num")
     .joins("LEFT JOIN follows ON follows.followable_id = microposts.id")
     .where("follows.followable_type = 'Micropost' OR follows.followable_type IS NULL")
-    .group("microposts.id")
+    .group("microposts.id,follows.id")
     .order("num DESC")
     .limit(5)
   end
