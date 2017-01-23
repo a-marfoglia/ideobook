@@ -12,15 +12,15 @@ class Micropost < ActiveRecord::Base
 
   mount_uploader :attachment, AttachmentUploader
   validate  :attachment_size
-  
+
   acts_as_followable
-  
-  
+
+
   def self.search(search,category,read,like)
     if search
       joins(:user).where(["microposts.title LIKE ? OR users.username LIKE ?","%#{search}%","%#{search}%"]).order(created_at: :desc)
     elsif category
-        where(["category_id LIKE ?","%#{category}%"]).order(created_at: :desc)  
+        where(["category_id LIKE ?","%#{category}%"]).order(created_at: :desc)
     elsif read
         order(views: :desc)
     elsif like
@@ -28,13 +28,14 @@ class Micropost < ActiveRecord::Base
        order(created_at: :desc)
     end
   end
-      
+
   def increment_views
     self.increment :views
     self.save
   end
-  
+
   def self.top5
+=begin
     ActiveRecord::Base.connection.exec_query("\
       SELECT users.id AS user_id, microposts.id AS micropost_id,\
              microposts.title, COUNT(*) AS num FROM microposts\
@@ -44,9 +45,15 @@ class Micropost < ActiveRecord::Base
       GROUP BY microposts.id\
       ORDER BY num DESC\
       LIMIT 5")
-      #Micropost.select('title', 'user_id', 'COUNT(*) as total').first.total
+=end
+    Micropost.select("*", "COUNT(follows.followable_id) as num")
+    .joins("LEFT JOIN follows ON follows.followable_id = microposts.id")
+    .where("follows.followable_type = 'Micropost' OR follows.followable_type IS NULL")
+    .group("microposts.id")
+    .order("num DESC")
+    .limit(5)
   end
-  
+
 
   def has_attachment?
     !self.attachment.file.nil?
