@@ -92,5 +92,9 @@ config.action_mailer.smtp_settings = {
   :user_name            => 'grupponet4c@gmail.com',
   :password => 'informatica4c'
 }
+
+
+config.logger = Logger.new(STDOUT)
+config.logger.level = Logger::DEBUG
   
 end
