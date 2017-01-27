@@ -15,7 +15,7 @@ Devise.setup do |config|
   config.mailer_sender = 'grupponet4c@gmail.com'
 
   # Configure the class responsible to send e-mails.
-   config.mailer = 'MyMailer'
+   config.mailer = 'devise/mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
