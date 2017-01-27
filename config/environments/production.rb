@@ -88,8 +88,10 @@ Rails.application.configure do
     :port                 => 25,
     :authentication       => :plain,
     :domain               => 'live.com',
-    :user_name            => ENV["HOTMAIL_USERNAME"],
-    :password             => ENV["HOTMAIL_PASSWORD"]
+    #:user_name            => ENV["HOTMAIL_USERNAME"],
+    #:password             => ENV["HOTMAIL_PASSWORD"]
+    :user_name            => 'a.marfoglia@hotmail.it',
+    :password             => 'londra03'
   }
   
 end
