@@ -79,19 +79,17 @@ Rails.application.configure do
   
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
-config.action_mailer.default_url_options = { :host => 'ideobook.herokuapp.com' }  
-config.action_mailer.delivery_method = :smtp  
-config.action_mailer.perform_deliveries = true  
-config.action_mailer.raise_delivery_errors = true  
-config.action_mailer.default :charset => "utf-8"  
-config.action_mailer.smtp_settings = {
-  :enable_starttls_auto => true,
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :authentication       => :login,
-  :domain               => 'grupponet4c@gmail.com',
-  :user_name            => 'grupponet4c@gmail.com',
-  :password => 'informatica4c'
-}
+  config.action_mailer.default_url_options = { :host => 'ideobook.herokuapp.com' }  
+  config.action_mailer.delivery_method = :smtp  
+  config.action_mailer.perform_deliveries = true  
+  config.action_mailer.raise_delivery_errors = true 
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.live.com",
+    :port                 => 25,
+    :authentication       => :plain,
+    :domain               => 'live.com',
+    :user_name            => ENV["HOTMAIL_USERNAME"],
+    :password             => ENV["HOTMAIL_PASSWORD"]
+  }
   
 end
