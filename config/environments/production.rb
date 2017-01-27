@@ -22,7 +22,8 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  # config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.serve_static_files = false
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -92,9 +93,5 @@ config.action_mailer.smtp_settings = {
   :user_name            => 'grupponet4c@gmail.com',
   :password => 'informatica4c'
 }
-
-
-config.logger = Logger.new(STDOUT)
-config.logger.level = Logger::DEBUG
   
 end
