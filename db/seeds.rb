@@ -12,7 +12,8 @@
   User.create!(username:  username,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               confirmed_at:          Time.now)
 end
 
 category = Category.create!(name: "Test")

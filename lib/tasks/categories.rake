@@ -14,6 +14,7 @@ namespace :categories do
       Category.create(name: "Hard")
       Category.create(name: "Horror")
       Category.create(name: "Paranormale")
+      Category.create(name: "Poesia")
       Category.create(name: "Politico")
       Category.create(name: "Poliziesco")
       Category.create(name: "Psicologico")
