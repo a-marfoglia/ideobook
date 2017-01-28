@@ -32,8 +32,7 @@
 	              </ul>         
 	            </div>
 	            <div class="col-xs-12 col-sm-5 col-md-4">
-                <%= form_for microposts_path, html: { class: 'input-group' } do |f| %>
-                <!--c.name, controller: "microposts", action: "index", category: c.id-->
+                <%= form_for microposts_path, method: 'get', html: { class: 'input-group' } do |f| %>
                   <%= text_field_tag :search, params[:search], class: 'form-control','autocomplete'=>'off' %>
                   <span class="input-group-btn">                   
                       <%= button_tag class: 'btn btn-primary btn-search' do %>
