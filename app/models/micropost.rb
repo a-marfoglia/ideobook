@@ -20,7 +20,7 @@ class Micropost < ActiveRecord::Base
     if search
       joins(:user).where(["microposts.title LIKE ? OR users.username LIKE ?","%#{search}%","%#{search}%"]).order(created_at: :desc)
     elsif category
-      where(["category_id LIKE ?","%#{category}%"]).order(created_at: :desc)
+      where(["category_id = ?","%#{category}%"]).order(created_at: :desc)
     elsif read
       order(views: :desc)
     elsif like
