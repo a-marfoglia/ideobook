@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :username, presence: true, length: { maximum: 31 }  
+  validates :username, presence: true, uniqueness: true, length: { maximum: 20, minimum: 6 }  
   before_save { email.downcase! }
 
   def notifications_num

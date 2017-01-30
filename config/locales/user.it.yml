@@ -1,8 +1,26 @@
 it:
   activerecord:
+    attributes:
+      user:
+        password_confirmation: "La conferma password"
+        password: "La password"
+        username: "L'username"
+        email: "L'e-mail"
     errors:
       models:
         user:
           attributes:
+            username:
+              too_long:     "inserito è troppo lungo"
+              too_short:    "inserito è troppo corto"
+              blank:        "non è stato inserito"
+              taken:        "inserito è già stato utilizzato"
+            password:
+              too_short:    "inserita è troppo corta"
+              too_long:     "inserita è troppo lunga"  
+              blank:        "non è stata inserita"
+            email:
+              invalid:      "inserita non valida"
+              taken:        "inserita è già stata utilizzata"
             password_confirmation:
-              confirmation: "Conferma password"
+              confirmation: "inserita non coincide con la password"

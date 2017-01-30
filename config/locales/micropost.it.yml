@@ -1,0 +1,21 @@
+it:
+  activerecord:
+    attributes:
+      micropost:
+        title: "Il titolo"
+        content: "La trama"
+        attachment: "L'allegato"
+        category_id: "La categoria"
+    errors:
+      models:
+        micropost:
+          attributes:
+            title:
+              too_long:     "inserito è troppo lungo (massimo 30 caratteri)"  
+              blank:        "non è stato inserito"
+            content:
+              too_short:    "inserita è troppo corta (minimo 30 caratteri)"
+              too_long:     "inserita è troppo lunga (massimo 300 caratteri)"
+              blank:        "non è stata inserita"  
+            category_id:
+              blank:        "non è stata specificata"
