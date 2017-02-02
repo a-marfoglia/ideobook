@@ -2,7 +2,8 @@ it:
   activerecord:
     attributes:
       user:
-        password_confirmation: "La conferma password"
+        password_confirmation: ""
+        current_password: "La password corrente"
         password: "La password"
         username: "L'username"
         email: "L'e-mail"
@@ -23,4 +24,7 @@ it:
               invalid:      "inserita non valida"
               taken:        "inserita è già stata utilizzata"
             password_confirmation:
-              confirmation: "inserita non coincide con la password"
+              confirmation: "Le password non coincidono"
+            current_password:
+              blank:        "non è stata inserita"
+              invalid:      "non è valida"

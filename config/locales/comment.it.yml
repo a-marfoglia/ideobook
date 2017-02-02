@@ -1,0 +1,14 @@
+it:
+  activerecord:
+    attributes:
+     comment:
+        content: "Il contenuto"
+    errors:
+      models:
+        comment:
+          attributes:
+            content:
+              too_short:    "inserito è troppo corto (minimo 10 caratteri)"
+              too_long:     "inserito è troppo lungo (massimo 200 caratteri)"
+              blank:        "non è stata inserito"  
+              
