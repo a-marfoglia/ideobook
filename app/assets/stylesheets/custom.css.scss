@@ -715,3 +715,67 @@ h6 { font-size: 13px; }
 
 /*  end profile rules  */
 
+/***********************  viewer **************************/
+#nav-viewer #btn-viewer-back
+{
+	font-size:24px;
+	background-color:transparent;
+	padding:0;
+	padding-right:20px;
+	border-right:1px solid white;
+	margin-top:7.2px;
+	float:left;
+}
+#v-section1{
+	background-color:#e9e9e9;
+	padding-top: 50px;
+	padding-left: 150px;
+	padding-right: 150px;
+}
+/*#v-section1 .paper{
+	background-color: #ffffff;
+	border-radius: 2px;
+	height:800px;
+	padding:50px;
+	box-shadow: 0 1px 2px #c9cccd;
+	margin-bottom: 20px;
+}*/
+#nav-viewer .container-viewer{
+	margin-left:20px;
+	margin-right:20px;
+	padding-left:10px;
+}
+
+#nav-viewer h3{
+	margin-top: 10px;
+    margin-bottom: 10px;
+	float:left;
+	padding-left:25px;
+	color:rgba(189, 189, 189, 0.86);
+}
+#nav-viewer h5{
+	float:left;
+	margin-top: 19px;
+    padding-left: 10px;
+    color: rgba(95, 95, 95, 0.89);
+}
+#nav-viewer .btn{
+    color: white;
+    border-radius: 0px;
+    padding: 7px 15px;
+    background-color: rgba(74, 74, 74, 0.71);
+	margin-right:5px;
+	margin-top:6px;
+}
+
+#nav-viewer .nav li .btn i{
+	margin-top:1.5px;
+	height:20px;
+}
+
+@media only screen and (max-width: $screen-sm-max) {
+    v-section1{
+	padding:30px;
+    }
+  }
+

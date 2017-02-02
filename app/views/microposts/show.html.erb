@@ -42,7 +42,9 @@
 		</div>
 		<div class="pull-right col-xs-1">
 		  <% if current_user && @micropost.has_attachment? %>
-    		  <span class="glyphicon glyphicon-eye-open"></span>
+    		  <%#= link_to do %>
+    		    <span class="glyphicon glyphicon-eye-open"></span>
+    		  <%# end %>
 		  <% else %>
           <span class="glyphicon glyphicon-eye-open disable"></span>
 		  <% end %>

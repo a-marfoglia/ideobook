@@ -18,6 +18,7 @@ gem 'bootstrap-will_paginate'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'acts_as_follower'
+gem 'docx', '~> 0.2.07', :require => ["docx"]
 
 
 group :development, :test do
