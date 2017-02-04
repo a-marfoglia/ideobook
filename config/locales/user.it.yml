@@ -4,6 +4,7 @@ it:
       user:
         password_confirmation: ""
         current_password: "La password corrente"
+        reset_password: "La password"
         password: "La password"
         username: "L'username"
         email: "L'e-mail"
@@ -26,5 +27,8 @@ it:
             password_confirmation:
               confirmation: "Le password non coincidono"
             current_password:
+              blank:        "non è stata inserita"
+              invalid:      "non è valida"
+            reset_password:
               blank:        "non è stata inserita"
               invalid:      "non è valida"

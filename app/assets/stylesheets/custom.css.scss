@@ -287,7 +287,8 @@ h6 { font-size: 13px; }
         text-align:center;
         margin:10px 0 10px 0; 
         a{ display: inline; }
-        a:first-child { border-right: 1px solid $grey-light; padding-right: 5px;}
+        a{ border-right: 1px solid $grey-light; padding-right: 5px;}
+        a:last-child { border:none; }
      }
    }
 }
