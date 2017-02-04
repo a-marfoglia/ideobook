@@ -1,0 +1,64 @@
+<% provide(:title, @micropost.title) %>
+<% @no_header = true %>
+<% @no_footer = true %>
+<%# TODO %>
+<style>
+  @media only print {
+    #v-section1 {
+      padding: 10px;
+    }
+  }
+
+</style>
+<%# TODO %>
+
+<nav id="nav-viewer" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-viewer">
+	<div class="navbar-header">
+	  <%= link_to "x", micropost_path(@micropost), id: "btn-viewer-back", class: "btn" %>
+	  
+	  <h3><%= @micropost.title %></h3><h5>di <%=@micropost.user.username %></h5>
+	  <button type="button" class="navbar-toggle collapsed" data-toggle=
+	  "collapse" data-target="#navbar-content"
+	  aria-expanded="false">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	  </button>
+	</div>
+	<div id="navbar-content" class="collapse navbar-collapse">
+	  <ul class="nav navbar-nav navbar-right">
+		  <li>
+			
+			<% if current_user != @micropost.user %>
+    		  <% if current_user.following?(@micropost) %>                        
+            <%= link_to micropost_follow_path(id: @micropost.id), method: 'delete', class: "btn" do %>
+              Non mi piace <i class="glyphicon glyphicon-thumbs-up "></i>
+            <% end %>
+    		  <% else %>  
+            <%= link_to new_micropost_follow_path(id: @micropost.id), class: "btn" do %>
+              Mi piace <i class="glyphicon glyphicon-thumbs-up "></i>
+            <% end %>
+          <% end %>
+        <% end %>
+				
+		  </li>
+		  <li>
+		  <%= link_to @micropost.attachment.url, download: "micropost_#{@micropost.id}_attachment", class: "btn" do %>
+			  Scarica <i class="glyphicon glyphicon-download"></i>
+			<% end %>
+		  </li>
+		  <li>
+			  <a class="btn hidden-xs hidden-sm" onclick="window.print();return false;"><i class="glyphicon glyphicon-print"></i></a>
+		  </li> 
+	  </ul>
+	</div>
+  </div>
+</nav>
+<section id="v-section1" class="col-xs-12">
+  <% doc = Docx::Document.open(@micropost.attachment.path) %>
+     <% doc.paragraphs.each do |p|%>
+     	<div class="cont-forum"><%= p.to_html.html_safe %></div>
+  <% end  %> 
+</section>

@@ -1,3 +1,4 @@
+<% provide(:title, @micropost.title) %>
 <%= render layout: 'layouts/forum_layout' do %>
 <div class="row">
   <div class="col-xs-12 col-md-8">
@@ -42,9 +43,9 @@
 		</div>
 		<div class="pull-right col-xs-1">
 		  <% if current_user && @micropost.has_attachment? %>
-    		  <%#= link_to do %>
+    		  <%= link_to micropost_viewer_path(@micropost) do %>
     		    <span class="glyphicon glyphicon-eye-open"></span>
-    		  <%# end %>
+    		  <% end %>
 		  <% else %>
           <span class="glyphicon glyphicon-eye-open disable"></span>
 		  <% end %>

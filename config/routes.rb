@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'notifications/index'
+  resources :micropost_viewer, only: [:show]
+  resources :notifications, only: [:index]
 
   root 'static_pages#home'
   #devise_for :users, controllers: { registrations: 'registrations' }
