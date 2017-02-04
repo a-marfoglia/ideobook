@@ -34,7 +34,7 @@
 		</div>
 		<div class="pull-right col-xs-1">
 		  <% if current_user && @micropost.has_attachment? %>
-		    <%= link_to @micropost.attachment.url, download: "micropost_#{@micropost.id}_attachment" do %>
+		    <%= link_to @micropost.attachment.url, download: @micropost.title do %>
     		  <span class="glyphicon glyphicon-download"></span>
 		    <% end %>
 		  <% else %>

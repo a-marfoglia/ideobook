@@ -3,6 +3,7 @@ class MicropostViewerController < ApplicationController
   
   def show
     @micropost = Micropost.find(params[:id])
-    redirect_to root_path unless @micropost.has_attachment?
+    redirect_to root_path unless @micropost && @micropost.has_attachment?
+    redirect_to @micropost.attachment.path unless @micropost.attachment.file.extension == "docx"
   end
 end
