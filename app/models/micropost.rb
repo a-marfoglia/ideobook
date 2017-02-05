@@ -42,17 +42,6 @@ class Micropost < ActiveRecord::Base
   end
 
   def self.top5
-=begin
-    ActiveRecord::Base.connection.exec_query("\
-      SELECT users.id AS user_id, microposts.id AS micropost_id,\
-             microposts.title, COUNT(*) AS num FROM microposts\
-      JOIN follows ON follows.followable_id = microposts.id\
-      JOIN users ON users.id = microposts.user_id\
-      WHERE follows.followable_type = 'Micropost'\
-      GROUP BY microposts.id\
-      ORDER BY num DESC\
-      LIMIT 5")
-=end
     Micropost.select("microposts.id, microposts.title, microposts.user_id", "COUNT(follows.followable_id) as num")
     .joins("LEFT JOIN follows ON follows.followable_id = microposts.id")
     .where("follows.followable_type = 'Micropost' OR follows.followable_type IS NULL")

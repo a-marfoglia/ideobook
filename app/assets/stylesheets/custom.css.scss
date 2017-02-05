@@ -23,8 +23,6 @@ $post-height: 138px;
 $post-info-n: 4;
 $post-info-height: $post-height/$post-info-n - 2;
 
-$view-height: 200px;
-
 $fonts: 'Open Sans', Helvetica, Arial, sans-serif;
 /* roba di albi, tipo un altro tipo di bottoni */
 
@@ -80,8 +78,9 @@ h6 { font-size: 13px; }
   h4 { font-size: 17px; }
   h5 { font-size: 14px; }
   h6 { font-size: 12px; }
-
-  #background{padding:0;}
+  
+  p { font-size: 11.6px; }
+  #background { padding:0; }
 }
 
  .btn-primary { @media only screen and (max-width: $screen-xs-max) { font-size:12px;}}
@@ -345,7 +344,9 @@ h6 { font-size: 13px; }
 #background {
   background-color: $background-color;
 }
-
+  .cont-forum{
+    @include box;
+  }
 #forum-main {
   header .crop-img {
     overflow-y: hidden;
@@ -355,10 +356,7 @@ h6 { font-size: 13px; }
   .main-list{ padding: 0px 25px;}
 
   .content { padding-top: 20px;  padding-bottom:20px; background-color: #e9e9e9;}
-
-  .cont-forum{
-    @include box;
-  }
+  
   textarea{
       border-radius: 0;
       border: none;
@@ -415,8 +413,8 @@ h6 { font-size: 13px; }
         }
         span { padding-right:10px;}
       }
-      .story-ranking {padding-top:1px;}
-      .story-ranking span { font-size:12px;  @media only screen and (max-width: $screen-xs-max) {font-size:10px;}}
+      .story-ranking { padding-top:1px; }
+      .story-ranking span { font-size:12px;  @media only screen and (max-width: $screen-xs-max) { font-size:10px; }}
     }
     .user-info{
       padding-left: 14px; 
@@ -548,7 +546,7 @@ h6 { font-size: 13px; }
     height: $post-height;
     margin-bottom: 10px;
     p { color: $grey-primary-text;}
-
+    a { text-decoration:none; }
     .post-info {
       //padding: 0 10px;
       margin-left: 10px;
@@ -568,9 +566,7 @@ h6 { font-size: 13px; }
       }
     }
     @media only screen and (max-width: $screen-xs-max){ 
-        .avatar p {font-size:11px;} 
         .post-text {padding-right:0px;}
-        p { font-size: 11.6px; }
       }
   }
 }
@@ -579,17 +575,26 @@ h6 { font-size: 13px; }
 /* 2.4             */
 /*  View rules */
 .view{
-  height:$view-height;
+  padding-bottom: 10px;
   margin-bottom:40px;
 
   p{ 
     min-height:95px;
-    padding-right: 5px;
+    padding-right: 15px;
   }
 
   .view-info{
     padding:8px;
-    .glyphicon {cursor: pointer;}
+    .alter-padding { padding: 0px 6px;}
+    .alter-padding2 { padding: 0px 26px;}
+    //.glyphicon-thumbs-up { padding-right: 11px; }
+    .glyphicon { color:#2F2F2F; cursor: pointer; }
+    
+    @media only screen and (max-width: $screen-xs-max){
+      .alter-padding2 { padding: 0px; }
+      .alter-padding { padding-right: 28px; }
+      .glyphicon-thumbs-up { padding-right: 8px; }
+    }
    }
   h4 span.glyphicon { font-size:14px; }
   h4 span.glyphicon-remove{
@@ -672,7 +677,7 @@ h6 { font-size: 13px; }
 	    padding:10px 0px;
 	    a { padding:0; padding-right: 5.5px;}
 	  }
-	  a,p { font-size:12px;}
+	  a { font-size:12px;}
 	}
 }
 
@@ -716,67 +721,54 @@ h6 { font-size: 13px; }
 
 /*  end profile rules  */
 
-/***********************  viewer **************************/
-#nav-viewer #btn-viewer-back
-{
-	font-size:24px;
-	background-color:transparent;
-	padding:0;
-	padding-right:20px;
-	border-right:1px solid white;
-	margin-top:7.2px;
-	float:left;
-}
-#v-section1{
-	background-color:#e9e9e9;
-	padding-top: 50px;
-	padding-left: 150px;
-	padding-right: 150px;
-}
-/*#v-section1 .paper{
-	background-color: #ffffff;
-	border-radius: 2px;
-	height:800px;
-	padding:50px;
-	box-shadow: 0 1px 2px #c9cccd;
-	margin-bottom: 20px;
-}*/
-#nav-viewer .container-viewer{
-	margin-left:20px;
-	margin-right:20px;
-	padding-left:10px;
-}
 
-#nav-viewer h3{
-	margin-top: 10px;
-    margin-bottom: 10px;
-	float:left;
-	padding-left:25px;
-	color:rgba(189, 189, 189, 0.86);
-}
-#nav-viewer h5{
-	float:left;
-	margin-top: 19px;
-    padding-left: 10px;
-    color: rgba(95, 95, 95, 0.89);
-}
-#nav-viewer .btn{
-    color: white;
-    border-radius: 0px;
-    padding: 7px 15px;
-    background-color: rgba(74, 74, 74, 0.71);
-	margin-right:5px;
-	margin-top:6px;
-}
-
-#nav-viewer .nav li .btn i{
-	margin-top:1.5px;
-	height:20px;
-}
-
-@media only screen and (max-width: $screen-sm-max) {
-    v-section1{
-	padding:30px;
+/*  2.7 viewer  */
+#nav-viewer{
+  padding:0px 30px;
+  .title-viewer{ 
+    padding-top:9px;
+    font-size:21px;
+    color: #d5d5d5 ;
+    .back{ 
+      color: #9d9d9d; 
+      padding-right:12px;
+      margin-right:20px;
+      text-decoration:none;
+    }
+    .back:focus, .back:hover { color: #fff; background-color: transparent; }
+    .username{
+      font-size: 16px;
+      text-decoration: none;
+      color:grey;
     }
   }
+  .navbar-right .btn{  
+    padding: 7px 15px;
+    background-color: rgba(74, 74, 74, 0.71);
+	  margin: 6.5px 0px 6.5px 5px;
+	 }
+	 @media only screen and (max-width: $screen-sm-max) { 
+	  padding: 0px 10px;
+	  .navbar-toggle { margin-right:0; }
+	  .title-viewer { width:80%; float:left; font-size:16px; .username { font-size:13px; }}
+	 }
+}
+
+#cont-viewer{
+  padding-top:30px;
+  .paper{
+    width: 800px; 	height: 1047px;
+    padding: 40px 60px;
+    box-shadow: 0 1px 2px #c9cccd;
+    text-align: justify;
+    margin: 0px auto 20px auto;
+    @media only screen and (max-width: $screen-sm-max) { 
+      width: 100%; padding: 6px 12px;
+      p { font-size: 12px !important;}
+    }
+  }
+  @media only print { .paper{ padding:0px;} }
+}
+
+/*  end viewer rules  */
 
