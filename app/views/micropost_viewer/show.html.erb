@@ -46,12 +46,7 @@
 	</div>
   </div>
 </nav>
-<section id="v-section1" class="col-xs-12">
-  <% doc = Docx::Document.open(@micropost.attachment.path) %>
-     <% doc.paragraphs.each do |p|%>
-     	<div class="cont-forum paper"><%= p.to_html.html_safe %></div>
-  <% end  %> 
-</section>-->
+-->
 
 <div id="background" class="container-fluid">
   <section id="forum-main" class="container">
@@ -98,21 +93,36 @@
   
     </nav>
     <div id="cont-viewer">
-        <%# doc.paragraphs.each do |p|%>
-         	<%#= p.to_html.html_safe %>
-        <%# end  %>
-        <% doc = Docx::Document.open(@micropost.attachment.path) %>
-        <%  c = ""; doc.paragraphs.each do |p| %>
-         	<% c+=p.to_s
-         	  if c.mb_chars.length > 3919 %>
-         	    <div class="cont-forum paper"><%= c %></div><%#=  c.mb_chars.length; doc.paragraphs.last.to_html.html_safe %>
-         	  <%  c="" %>
-         	  <%#else if p.to_s==doc.paragraphs.last.to_s %>
-                      <!--<div class="cont-forum paper"><%= doc.paragraphs.last.to_s %></div>  -->       	        
-         	      <%#end%>
-         	    
-         	  <% end %>
-        <% end  %>         
+
+        <% yomu = Yomu.new @micropost.attachment.path
+text = yomu.text %>
+<%= text
+ %>
     </div>
   </section>
 </div>
+
+
+      <!--  <section id="v-section1" class="col-xs-12">
+  <% doc = Docx::Document.open(@micropost.attachment.path) %>
+     <% doc.paragraphs.each do |p|%>
+     	<div class="cont-forum paper"><%= p.to_html.html_safe %></div>
+  <% end  %> 
+</section>-->
+        
+        
+        <%# doc.paragraphs.each do |p|%>
+         	<%#= p.to_html.html_safe %>
+        <%# end  %>
+        <!--<% doc = Docx::Document.open(@micropost.attachment.path) %>
+        <%  c = ''; doc.paragraphs.each do |p| %>
+         	<% c+=p.to_s
+         	  if c.mb_chars.length > 3919 %>
+         	    <div class="cont-forum paper"><p><%= c %></p></div><%=  c.mb_chars.length; puts doc.paragraphs.first%>
+         	  <%  c="" %>
+         	  <%#else if p.to_s==doc.paragraphs.last.to_s %>
+                      <!--<div class="cont-forum paper"><%= doc.paragraphs.last.to_s %></div>      	        
+         	      <%#end%>
+         	    
+         	  <% end %>
+     <% end  %>   -->

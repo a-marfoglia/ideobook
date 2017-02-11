@@ -84,7 +84,7 @@ h6 { font-size: 13px; }
 }
 
  .btn-primary { @media only screen and (max-width: $screen-xs-max) { font-size:12px;}}
- .disable { color: lightgray; cursor: auto!important;}
+ .disable { color: $grey-light !important; cursor: auto!important;}
 /* Sticky footer */
 #wrap {
 	min-height: 100%;
@@ -709,7 +709,7 @@ h6 { font-size: 13px; }
       .tab-content { padding-left:0px; }
       .nav-pills{
         border:0;
-        border-top: 1px solid lightgrey;
+        border-top: 1px solid $grey-light;
         padding-top: 10px;
         margin-top: 14px;
         li { width:100%;}

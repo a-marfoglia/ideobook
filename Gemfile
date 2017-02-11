@@ -18,8 +18,8 @@ gem 'bootstrap-will_paginate'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'acts_as_follower'
-gem 'docx', '~> 0.2.07', :require => ["docx"]
-
+#gem 'docx', '~> 0.2.07', :require => ["docx"]
+gem 'yomu'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
