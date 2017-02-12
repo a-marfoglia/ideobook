@@ -93,7 +93,6 @@
   
     </nav>
     <div id="cont-viewer">
-    <section id="v-section1">
         
         <% doc = Docx::Document.open(@micropost.attachment.path) %>
          <% h=[];i=0; doc.paragraphs.each do |p|%>
@@ -125,8 +124,6 @@
             <% end %>
             
             <div class="cont-forum paper"><p><%= s.html_safe %></p></div>
-
-    </section>
     </div>
   </section>
 </div>
