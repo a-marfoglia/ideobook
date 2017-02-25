@@ -19,6 +19,16 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'acts_as_follower'
 gem 'docx', '~> 0.2.07', :require => ["docx"]
+gem 'figaro'
+gem 'puma'
+
+group :development do
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
+end
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
