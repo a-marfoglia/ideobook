@@ -1,7 +1,7 @@
 lock '3.7.2'
 
 set :application, 'ideobook'
-set :repo_url, 'git@github.com:devdatta/ideobook.git' # Edit this to match your repository
+set :repo_url, 'git@github.com:a-marfoglia/ideobook.git' # Edit this to match your repository
 set :branch, :master
 set :deploy_to, '/home/deploy/ideobook'
 set :pty, true
