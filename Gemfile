@@ -21,6 +21,7 @@ gem 'acts_as_follower'
 gem 'docx', '~> 0.2.07', :require => ["docx"]
 gem 'figaro'
 gem 'puma'
+gem 'pg'
 
 group :development do
   gem 'capistrano'
@@ -44,7 +45,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
