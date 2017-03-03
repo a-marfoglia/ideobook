@@ -1,0 +1,1 @@
+function removeDiv(o){object=$("."+o),object.remove()}$(document).ready(function(){$('[data-toggle="popover"]').popover()});

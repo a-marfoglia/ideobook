@@ -21,14 +21,13 @@ gem 'acts_as_follower'
 gem 'docx', '~> 0.2.07', :require => ["docx"]
 gem 'figaro'
 gem 'puma'
-gem 'pg'
 
 group :development do
-  gem 'capistrano'
-  gem 'capistrano3-puma'
-  gem 'capistrano-rails', require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano-rvm'
+    gem 'capistrano',         require: false
+    gem 'capistrano-rvm',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
 end
 
 group :development, :test do
@@ -46,5 +45,13 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg'
 end
+
+#group :assets do 
+ # gem 'sass-rails'
+ # gem 'coffee-rails', '~> 4.1.0'
+ # gem 'uglifier', '~> 2.5.3'
+#end
+
 

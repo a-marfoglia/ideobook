@@ -1,4 +1,11 @@
 it:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "La validazione è fallita: %{errors}"
+        restrict_dependent_destroy:
+          has_one: Non si può eliminare il registro perchè c'è un %{record} dipendente
+          has_many: Non si può eliminare il registro perchè ci sono %{record} dipendenti
   datetime:
     distance_in_words:
       half_a_minute: "mezzo minuto"
@@ -42,3 +49,5 @@ it:
       hour:   "Ora"
       minute: "Minuto"
       second: "Secondo"
+      
+   
