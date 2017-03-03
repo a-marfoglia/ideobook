@@ -23,11 +23,11 @@ gem 'figaro'
 gem 'puma'
 
 group :development do
-    gem 'capistrano',         require: false
-    gem 'capistrano-rvm',     require: false
-    gem 'capistrano-rails',   require: false
-    gem 'capistrano-bundler', require: false
-    gem 'capistrano3-puma',   require: false
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
 end
 
 group :development, :test do
@@ -48,10 +48,5 @@ group :production do
   gem 'pg'
 end
 
-#group :assets do 
- # gem 'sass-rails'
- # gem 'coffee-rails', '~> 4.1.0'
- # gem 'uglifier', '~> 2.5.3'
-#end
 
 
