@@ -22,11 +22,5 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  database: db/production.sqlite3 
-  username: ideobook
-  password: ideobook
-  host: localhost
-  port: 5432
+  database: db/production.sqlite3
 
