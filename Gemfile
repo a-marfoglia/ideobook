@@ -21,6 +21,7 @@ gem 'acts_as_follower'
 gem 'docx', '~> 0.2.07', :require => ["docx"]
 gem 'figaro'
 gem 'puma'
+gem 'sqlite3',     '1.3.9'
 
 group :development do
   gem 'capistrano'
@@ -31,7 +32,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
@@ -45,7 +45,7 @@ end
 
 group :production do
   #gem 'rails_12factor'
-  gem 'pg'
+  #gem 'pg'
 end
 
 
