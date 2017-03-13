@@ -88,7 +88,7 @@ h6 { font-size: 13px; }
 /* Sticky footer */
 #wrap {
 	min-height: 100%;
-	height: auto !important;
+	//height: auto !important;
 	height: 100%;
 	margin: 0 auto -60px;
   padding: 50px 0 60px;
@@ -224,27 +224,32 @@ h6 { font-size: 13px; }
 	background-image: url(image_path('index_bg.jpg'));
 	background-position: center center;
 	background-size: cover;
-	padding:130px 0;
+	padding:180px 0;
 	overflow: hidden;
 
 	h1 {
 	  color: #FFF;
-    text-transform: uppercase;
+    //text-transform: uppercase;
     text-shadow: 2px 2px #000;
+    font-size:90px;
 	}
 
-	h5 {
-	  color: #B1AFAF;
+	h3 {
+	  color: #d8d8d8;
     text-shadow: 1px 1px #000;
 	}
 
 	a {
     margin-top:20px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
   }
+  a:hover { background-color: rgba(47, 47, 47, 0.48); }
 
 	@media only screen and (max-width: $screen-xs-max){
 	  padding-top: 100px;
     padding-bottom: 30px;
+    h1{ font-size: 62px; }
 	}
 }
 /* end of Header rules */
@@ -253,9 +258,18 @@ h6 { font-size: 13px; }
 /* Section 2 rules */
 #section2 {
   margin-top:50px;
+  margin-bottom: 50px;
   .row div {
     margin-top:    30px;
     margin-bottom: 20px;
+    .features{
+      font-size: 55px;
+      color: #2F2F2F;
+      border: 2px solid #2F2F2F;
+      padding: 12px;
+      padding-left: 16px;
+      margin-bottom: 27px;
+    }
   }
 }
 /* end of Section 2 rules */
@@ -277,6 +291,8 @@ h6 { font-size: 13px; }
 /* Login and Signin rules */
 #sign-form{
   margin-top: 45px;
+  height: 100%;
+  margin-bottom: -45px;
   a{ display: inherit;}
   form, h2 {
     margin-left: 10px;
@@ -344,6 +360,7 @@ h6 { font-size: 13px; }
 /* Generic forum rules */
 #background {
   background-color: $background-color;
+  min-height: 100%;
 }
   .cont-forum{
     @include box;
@@ -376,7 +393,7 @@ h6 { font-size: 13px; }
       width: 50px;
     }
     p {
-      min-width: 44px;
+      min-width: 60px;
       word-wrap: break-word; 
     }
   }
@@ -552,6 +569,11 @@ h6 { font-size: 13px; }
     margin-bottom: 10px;
     p { color: $grey-primary-text;}
     a { text-decoration:none; }
+    .avatar p { margin-left: -10px; }
+    .post-text{  
+       max-height: 126px;
+       overflow: hidden;
+    }
     .post-info {
       //padding: 0 10px;
       margin-left: 10px;
@@ -571,7 +593,7 @@ h6 { font-size: 13px; }
       }
     }
     @media only screen and (max-width: $screen-xs-max){ 
-        .post-text {padding-right:0px;}
+        .post-text { padding-right:0px; }
       }
   }
 }
