@@ -30,6 +30,6 @@ end
 
 User.create!(username:  "a.marfoglia",
              email: "a.marfoglia@hotmail.it",
-             password:              "londra03",
-             password_confirmation: "londra03",
+             password:              "password",
+             password_confirmation: "password",
              confirmed_at:          Time.now)
