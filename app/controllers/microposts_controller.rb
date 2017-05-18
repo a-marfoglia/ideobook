@@ -9,7 +9,10 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find(params[:id])
-    @micropost.increment_views
+    if !already_viewed?
+      save_view
+      @micropost.increment_views
+    end
     @comment = Comment.new
   end
 
@@ -53,5 +56,17 @@ class MicropostsController < ApplicationController
 
     def correct_user
       redirect_to root_path unless Micropost.find(params[:id]).user == current_user
+    end
+
+    def save_view
+      session[:viewed_posts] ||= Array.new
+      session[:viewed_posts].b_insert @micropost.id
+    end
+
+    def already_viewed?
+      if session[:viewed_posts] && session[:viewed_posts].b_search(@micropost.id)
+        return true
+      end
+      return false
     end
 end

@@ -27,3 +27,9 @@ users = User.order(:created_at).take(6)
   users.each { |user| user.microposts.create!(content: content, title: title, category_id: id ) }
 end
 =end
+
+User.create!(username:  "a.marfoglia",
+             email: "a.marfoglia@hotmail.it",
+             password:              "londra03",
+             password_confirmation: "londra03",
+             confirmed_at:          Time.now)

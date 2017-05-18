@@ -78,7 +78,7 @@ h6 { font-size: 13px; }
   h4 { font-size: 16px; }
   h5 { font-size: 13px; }
   h6 { font-size: 11px; }
-  
+
   p { font-size: 11.6px; }
   #background { padding:0; }
 }
@@ -95,8 +95,8 @@ h6 { font-size: 13px; }
 }
 
 .footer {
-	height: 60px;
-	background-color: #D8D8D8;
+	height: 40px;
+	background-color: #2F2F2F;
   p {
     margin-top: 20px;
   }
@@ -118,13 +118,13 @@ h6 { font-size: 13px; }
 
  .main-list .pagination ul.pagination {
     a { padding: 4px 10px; margin-right:5px; color: #989898;}
-    li.active a { 
+    li.active a {
       background-color: #d8d8d8;
       border-color: #b4b4b4;
       cursor: default;
-      color: #3e3c3c; 
+      color: #3e3c3c;
      }
-     
+
      li.prev a, li.next a{
       background-color: Transparent;
       background-repeat:no-repeat;
@@ -133,13 +133,13 @@ h6 { font-size: 13px; }
       overflow: hidden;
       outline:none;
     }
-    
+
     @media only screen and (max-width: $screen-xs-max){
        li { display:none; }
        li.next,li.active,li.prev { display:inline; }
        li:last-child { color: red;}
 	  }
-  } 
+  }
 
 .field {
   margin-bottom: 10px;
@@ -195,8 +195,8 @@ h6 { font-size: 13px; }
   a { color: #2F2F2F;}
   h4 { font-weight: bold; }
  }
-.post-text, .comment-content{ 
-  word-wrap: break-word; 
+.post-text, .comment-content{
+  word-wrap: break-word;
   white-space: normal;
  }
 /* end of Generic rules */
@@ -263,12 +263,16 @@ h6 { font-size: 13px; }
     margin-top:    30px;
     margin-bottom: 20px;
     .features{
-      font-size: 55px;
+      font-size: 36px;
       color: #2F2F2F;
-      border: 2px solid #2F2F2F;
-      padding: 12px;
-      padding-left: 16px;
-      margin-bottom: 27px;
+      //border: 2px solid #2F2F2F;
+      padding: 4px;
+      //padding-left: 16px;
+      //margin-bottom: 27px;
+    }
+    .cont-forum{
+      padding:18px;
+      background-color: #d3d3d34d;
     }
   }
 }
@@ -297,11 +301,11 @@ h6 { font-size: 13px; }
   form, h2 {
     margin-left: 10px;
   }
-  
+
    @media only screen and (max-width: $screen-xs-max) {
       .link{
         text-align:center;
-        margin:10px 0 10px 0; 
+        margin:10px 0 10px 0;
         a{ display: inline; }
         a{ border-right: 1px solid $grey-light; padding-right: 5px;}
         a:last-child { border:none; }
@@ -374,7 +378,7 @@ h6 { font-size: 13px; }
   .main-list{ padding: 0px 25px;}
 
   .content { padding-top: 20px;  padding-bottom:20px; background-color: #e9e9e9;}
-  
+
   textarea{
       border-radius: 0;
       border: none;
@@ -394,22 +398,22 @@ h6 { font-size: 13px; }
     }
     p {
       min-width: 60px;
-      word-wrap: break-word; 
+      word-wrap: break-word;
     }
   }
-  
+
   .side-box{
     @include box;
     margin-bottom: 30px;
     ul,h5 { padding:10px; margin:0;}
     h5 {font-weight: bold;}
-    ul{ 
+    ul{
       list-style-type: none;
       a{ color:black; }
-      li{ 
+      li{
         padding:6px;
         border-bottom: 1px solid #e9e9e9;
-        span.badge{ 
+        span.badge{
           font-size: 13px;
           background-color: #9da6aa;
         }
@@ -439,11 +443,11 @@ h6 { font-size: 13px; }
       .story-ranking span { font-size:12px;  @media only screen and (max-width: $screen-xs-max) { font-size:10px; }}
     }
     .user-info{
-      padding-left: 14px; 
+      padding-left: 14px;
       padding-right: 14px;
       span.glyphicon { margin-left:7px; margin-bottom:13px;}
       p { font-size:13.5px; margin-left:4px;}
-      .info{ 
+      .info{
           padding-top: 20px;
           height: 110px;
        }
@@ -477,14 +481,14 @@ h6 { font-size: 13px; }
 .notification-list {
   padding: 0;
   list-style-type: none;
-  
-  .notification { 
+
+  .notification {
     @include box;
     min-height: 68px;
     margin-bottom: 5px;
-  
+
     .notification-opts { padding-left: 10px; padding-bottom: 5px; }
-    
+
      @media only screen and ( max-width: $screen-xs-max) {
       font-size: 11.5px;
       .notification-opts{
@@ -492,7 +496,7 @@ h6 { font-size: 13px; }
           padding-left: 0;
        }
        .notify-text{ padding-bottom: 19px; border-bottom: 1px solid $grey-light;}
-          
+
       }
    }
   .not-read{ background-color: #fffbef;}
@@ -515,7 +519,7 @@ h6 { font-size: 13px; }
       img {
         height: auto;
         width: 100%;
-      } 
+      }
     }
     .dropdown-text {
       float: left;
@@ -570,7 +574,7 @@ h6 { font-size: 13px; }
     p { color: $grey-primary-text;}
     a { text-decoration:none; }
     .avatar p { margin-left: -10px; }
-    .post-text{  
+    .post-text{
        max-height: 126px;
        overflow: hidden;
     }
@@ -592,7 +596,7 @@ h6 { font-size: 13px; }
         }
       }
     }
-    @media only screen and (max-width: $screen-xs-max){ 
+    @media only screen and (max-width: $screen-xs-max){
         .post-text { padding-right:0px; }
       }
   }
@@ -605,7 +609,7 @@ h6 { font-size: 13px; }
   padding-bottom: 10px;
   margin-bottom:40px;
 
-  p{ 
+  p{
     min-height:95px;
     padding-right: 15px;
   }
@@ -616,7 +620,7 @@ h6 { font-size: 13px; }
     .alter-padding2 { padding: 0px 26px;}
     //.glyphicon-thumbs-up { padding-right: 11px; }
     .glyphicon { color:#2F2F2F; cursor: pointer; }
-    
+
     @media only screen and (max-width: $screen-xs-max){
       .alter-padding2 { padding: 0px; }
       .alter-padding { padding-right: 28px; }
@@ -635,7 +639,7 @@ h6 { font-size: 13px; }
   padding-bottom:6px;
   form { padding: 10px; }
  }
- 
+
  .comments-list{
   list-style:none;
   li { margin-bottom:10px;}
@@ -649,7 +653,7 @@ h6 { font-size: 13px; }
   }
   @media only screen and (max-width: $screen-xs-max){ padding: 0px;}
  }
- 
+
 
 /* end of View rules */
 
@@ -725,13 +729,13 @@ h6 { font-size: 13px; }
   .input-group { margin-bottom:8px; }
   .nav-pills {
     li{ width:90%;  margin:0; a { border-radius:0px;} }
-    li.active > a{ 
+    li.active > a{
       color: #5c5c5c;
       background-color: #e9e9e9;
     }
   }
   .tab-content { padding-left:60px; }
-  
+
   @media only screen and (max-width: $screen-xs-max){
       .tab-content { padding-left:0px; }
       .nav-pills{
@@ -752,12 +756,12 @@ h6 { font-size: 13px; }
 /*  2.7 viewer  */
 #nav-viewer{
   padding:0px 30px;
-  .title-viewer{ 
+  .title-viewer{
     padding-top:9px;
     font-size:21px;
     color: #d5d5d5 ;
-    .back{ 
-      color: #9d9d9d; 
+    .back{
+      color: #9d9d9d;
       padding-right:12px;
       margin-right:20px;
       text-decoration:none;
@@ -769,12 +773,12 @@ h6 { font-size: 13px; }
       color:grey;
     }
   }
-  .navbar-right .btn{  
+  .navbar-right .btn{
     padding: 7px 15px;
     background-color: rgba(74, 74, 74, 0.71);
 	  margin: 6.5px 0px 6.5px 5px;
 	 }
-	 @media only screen and (max-width: $screen-sm-max) { 
+	 @media only screen and (max-width: $screen-sm-max) {
 	  padding: 0px 10px;
 	  .navbar-toggle { margin-right:0; }
 	  .title-viewer { width:80%; float:left; font-size:16px; .username { font-size:13px; }}
@@ -790,7 +794,7 @@ h6 { font-size: 13px; }
     text-align: justify;
     margin: 0px auto 20px auto;
     p { font-size:12pt; }
-    @media only screen and (max-width: $screen-xs-max) { 
+    @media only screen and (max-width: $screen-xs-max) {
       width: 100%; height: 1300px; padding: 8px 12px;
       p { font-size: 12px !important;}
     }
@@ -808,4 +812,3 @@ h6 { font-size: 13px; }
 }
 
 /*  end viewer rules  */
-

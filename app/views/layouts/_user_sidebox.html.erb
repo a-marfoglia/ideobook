@@ -6,21 +6,19 @@
         </div>
         <div class="row">
           <div class="user-info">
-            <div class="col-xs-4">
+            <div class="col-xs-6">
               <div class="info text-center">
                 <span class="glyphicon glyphicon-user"></span>
-                <span>Lettori</span>
-                <p class="border-bottom"><%= @user.followers.count %></p>
+                <p class="border-bottom">Lettori: <%= @user.followers.count %></p>
               </div>
             </div>
-            <div class="col-xs-4 border-right border-left ">
+            <div class="col-xs-6 border-right border-left ">
               <div class="info text-center">
                 <span class="glyphicon glyphicon-edit"></span>
-                <span>Racconti</span>
-                <p class="border-bottom"><%= @user.microposts.count  %></p>
+                <p class="border-bottom">Racconti: <%= @user.microposts.count  %></p>
               </div>
             </div>
-            <div class="col-xs-4">
+            <!--<div class="col-xs-4">
               <div class="info text-center">
                 <span class="glyphicon glyphicon-education"></span>
                 <span>Livello</span>
@@ -30,14 +28,14 @@
                    <% else %>
                       <%= "Professore" %>
                    <% end %></p></p>
-                   <!--<% case @user.followers.count
+                   <% case @user.followers.count
                     when 1 %>
                       <%= "Professore" %>
                     <% when 0 %>
                       <%= "Principiante" %>
-                    <% end %>-->
+                    <% end %>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
