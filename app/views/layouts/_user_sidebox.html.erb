@@ -1,42 +1,40 @@
-<aside class="col-xs-12 col-md-4">
-    <div class="main-list">
-      <div class="side-box">
-        <div class="border-bottom">
-          <h5>Riassunto utente</h5>
-        </div>
-        <div class="row">
-          <div class="user-info">
-            <div class="col-xs-6">
-              <div class="info text-center">
-                <span class="glyphicon glyphicon-user"></span>
-                <p class="border-bottom">Lettori: <%= @user.followers.count %></p>
-              </div>
+<aside class="col-xs-12 col-sm-8 col-md-3">
+    <div class="side-box">
+      <div class="border-bottom">
+        <h5>Riassunto utente</h5>
+      </div>
+      <div class="row">
+        <div class="user-info">
+          <div class="col-xs-6">
+            <div class="info text-center">
+              <span class="glyphicon glyphicon-user"></span>
+              <p class="border-bottom">Lettori: <%= @user.followers.count %></p>
             </div>
-            <div class="col-xs-6 border-right border-left ">
-              <div class="info text-center">
-                <span class="glyphicon glyphicon-edit"></span>
-                <p class="border-bottom">Racconti: <%= @user.microposts.count  %></p>
-              </div>
-            </div>
-            <!--<div class="col-xs-4">
-              <div class="info text-center">
-                <span class="glyphicon glyphicon-education"></span>
-                <span>Livello</span>
-                <p class="border-bottom">
-                   <% if @user.followers.count <= 9 %>
-                      <%= "Principiante" %>
-                   <% else %>
-                      <%= "Professore" %>
-                   <% end %></p></p>
-                   <% case @user.followers.count
-                    when 1 %>
-                      <%= "Professore" %>
-                    <% when 0 %>
-                      <%= "Principiante" %>
-                    <% end %>
-              </div>
-            </div>-->
           </div>
+          <div class="col-xs-6 border-right border-left ">
+            <div class="info text-center">
+              <span class="glyphicon glyphicon-edit"></span>
+              <p class="border-bottom">Racconti: <%= @user.microposts.count  %></p>
+            </div>
+          </div>
+          <!--<div class="col-xs-4">
+            <div class="info text-center">
+              <span class="glyphicon glyphicon-education"></span>
+              <span>Livello</span>
+              <p class="border-bottom">
+                 <% if @user.followers.count <= 9 %>
+                    <%= "Principiante" %>
+                 <% else %>
+                    <%= "Professore" %>
+                 <% end %></p></p>
+                 <% case @user.followers.count
+                  when 1 %>
+                    <%= "Professore" %>
+                  <% when 0 %>
+                    <%= "Principiante" %>
+                  <% end %>
+            </div>
+          </div>-->
         </div>
       </div>
     </div>

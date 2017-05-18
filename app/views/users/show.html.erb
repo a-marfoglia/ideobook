@@ -1,72 +1,58 @@
 <% provide(:title, @user.username) %>
 <%= render layout: 'layouts/forum_layout' do %>
   <div class="row">
-    <div id="profile" class="col-xs-12 col-md-8">
-       <div class="main-list">
+    <div id="profile" class="main-list">
+      <div class="col-sm-3 col-lg-2">
         <div class="cont-forum profile">
-          <div class="row">
-            <div class="col-xs-4 col-sm-3">
-              <div class="user-avatar-container">
-                <%= image_tag @user.avatar.small.url, alt: "Immagine del profilo", class: "img-responsive" %>
-                <% if current_user == @user %>
-                  <span>Cambia immagine</span>
-                  <%= form_for(current_user, url: avatar_upload_path(current_user)) do |f| %>
-                    <div class="hiddenfile">
-                      <%= f.file_field :avatar %>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-            <div class="col-xs-8 col-sm-9">
-              <h4>
-                <%= @user.username %>
-                <% if current_user == @user %>
-                  <%= link_to edit_user_registration_path(id: @user.id) do %>
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
-                  <% end %>
-                <% end %>
-              </h4>
-              <p>Data di nascita: <%= @user.birth_date ? @user.birth_date.strftime("%d/%m/%Y") : content_tag(:i, "sconosciuto") %></p>
-              <p>Professione: <%= @user.occupation ? @user.occupation : content_tag(:i, "sconosciuto") %> </p>
-              <p>Genere preferito: <% if favourite_category = @user.favourite_category %>
-                                      <%= Category.find(favourite_category).name %>
-                                   <% else %>
-                                      <%= content_tag :i, "sconosciuto" %>
-                                   <% end %></p>
-              <div class="profile-btn border-top text-center">
-                <% if user_signed_in? && current_user != @user %>
-                  <% if !current_user.following?(@user) %>
-                    <%= link_to "Segui", new_user_follow_path(id: @user.id), class: 'border-right' %>
-                  <% else %>
-                    <%= link_to "Non seguire", user_follow_path(id: @user.id), method: 'delete', class: 'border-right' %>
-                  <% end %>
-                  <a class="border-right" type="button">Racconti</a>
-                  <a type="button">Contatta</a>
-                <% end %>
-              </div>
-            </div>
+          <div class="user-avatar-container">
+            <%= image_tag @user.avatar.small.url, alt: "Immagine del profilo",
+                                                    class: "img-responsive" %>
+            <% if current_user == @user %>
+              <span>Cambia immagine</span>
+              <%= form_for(current_user, url: avatar_upload_path(current_user)) do |f| %>
+                <div class="hiddenfile">
+                  <%= f.file_field :avatar %>
+                </div>
+              <% end %>
+            <% end %>
+            <!----------->
+          </div>
+          <h4 class="text-center"><b><%= @user.username %></b></h4>
+          <h6 class="text-center"><%= @user.occupation ? @user.occupation : content_tag(:i, "vuoto") %></h6>
+          <div class="profile-btn border-top text-center">
+            <% if user_signed_in? && current_user != @user %>
+              <% if !current_user.following?(@user) %>
+                <%= link_to "Segui", new_user_follow_path(id: @user.id), class: 'btn-primary btn' %>
+              <% else %>
+                <%= link_to "Non seguire", user_follow_path(id: @user.id), method: 'delete', class: 'btn-primary btn' %>
+              <% end %>
+            <% end %>
+            <% if current_user == @user %>
+              <%= link_to "Aggiorna",edit_user_registration_path(id: @user.id), class: 'btn-primary btn' %>
+            <% end %>
           </div>
         </div>
-        <% if @user.microposts.any? %>
-           <h4> Racconti utente </h4>
-          <ul class="post-list">
-            <%= render @microposts %>
-          </ul>
-          <div class="text-center">
-           <%= will_paginate @microposts,
-                previous_label: "<span class=\"glyphicon glyphicon-chevron-left\"
-                                  aria-hidden=\"true\"></span>",
-                next_label:     "<span class=\"glyphicon glyphicon-chevron-right\"
-                                  aria-hidden=\"true\"></span>" %>
-                <!--  inner_window: 1 %>-->
-          </div>
-        <% end %>
-
-       </div>
+      </div>
+      <div class="col-sm-9 col-lg-7">
+      <% if @user.microposts.any? %>
+         <h4 class="text-center">Lista racconti</h4>
+        <ul class="post-list">
+          <%= render @microposts %>
+        </ul>
+        <div class="text-center">
+         <%= will_paginate @microposts,
+              previous_label: "<span class=\"glyphicon glyphicon-chevron-left\"
+                                aria-hidden=\"true\"></span>",
+              next_label:     "<span class=\"glyphicon glyphicon-chevron-right\"
+                                aria-hidden=\"true\"></span>" %>
+              <!--  inner_window: 1 %>-->
+        </div>
+      <% else %>
+        <h5 class="text-center">Non ci sono racconti da visualizzare</h5>
+      <% end %>
+      </div>
+      <%= render 'layouts/user_sidebox' %>
     </div>
-    <%= render 'layouts/user_sidebox' %>
-
   </div>
 <% end %>
 
@@ -101,6 +87,37 @@
         arrivo=x;
       }
 
-      $(".main-list .pagination ul.pagination li:nth-child(n+"+partenza+"):nth-child(-n+"+arrivo+")").css("display", "inline");
+      $(".main-list .pagination ul.pagination li:nth-child(n+"+partenza+")
+                          :nth-child(-n+"+arrivo+")").css("display", "inline");
   });
 </script>
+
+
+<!--<div class="col-xs-8 col-sm-9">
+  <h4>
+    <%= @user.username %>
+    <% if current_user == @user %>
+      <%= link_to edit_user_registration_path(id: @user.id) do %>
+        <span class="glyphicon glyphicon-cog pull-right"></span>
+      <% end %>
+    <% end %>
+  </h4>
+  <p>Data di nascita: <%= @user.birth_date ? @user.birth_date.strftime("%d/%m/%Y") : content_tag(:i, "sconosciuto") %></p>
+  <p>Professione: <%= @user.occupation ? @user.occupation : content_tag(:i, "sconosciuto") %> </p>
+  <p>Genere preferito: <% if favourite_category = @user.favourite_category %>
+                          <%= Category.find(favourite_category).name %>
+                       <% else %>
+                          <%= content_tag :i, "sconosciuto" %>
+                       <% end %></p>
+  <div class="profile-btn border-top text-center">
+    <% if user_signed_in? && current_user != @user %>
+      <% if !current_user.following?(@user) %>
+        <%= link_to "Segui", new_user_follow_path(id: @user.id), class: 'border-right' %>
+      <% else %>
+        <%= link_to "Non seguire", user_follow_path(id: @user.id), method: 'delete', class: 'border-right' %>
+      <% end %>
+      <a class="border-right" type="button">Racconti</a>
+      <a type="button">Contatta</a>
+    <% end %>
+  </div>
+</div>-->

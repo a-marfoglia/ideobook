@@ -28,8 +28,8 @@ users = User.order(:created_at).take(6)
 end
 =end
 
-User.create!(username:  "a.marfoglia",
-             email: "a.marfoglia@hotmail.it",
+User.create!(username:  "example",
+             email: "example@hotmail.it",
              password:              "password",
              password_confirmation: "password",
              confirmed_at:          Time.now)
