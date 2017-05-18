@@ -64,7 +64,7 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -80,17 +80,17 @@ Rails.application.configure do
   
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
-  config.action_mailer.default_url_options = { :host => 'bitbooks.ml' }  
+  config.action_mailer.default_url_options = { :host => 'bitbooks.it' }  
   config.action_mailer.delivery_method = :smtp  
   config.action_mailer.perform_deliveries = true  
   config.action_mailer.raise_delivery_errors = true 
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.live.com",
+    :address              => "authsmtp.bitbooks.it",
     :port                 => 25,
     :authentication       => :plain,
-    :domain               => 'live.com',
-    :user_name            => ENV["HOTMAIL_USERNAME"],
-    :password             => ENV["HOTMAIL_PASSWORD"]
+    :domain               => 'bitbooks.it',
+    :user_name            => ENV["EMAIL"],
+    :password             => ENV["PASSWORD"]
   }
 
   
