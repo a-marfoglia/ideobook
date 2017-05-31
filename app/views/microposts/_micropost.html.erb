@@ -1,12 +1,12 @@
-<li class="post cont-forum">  
+<li class="post cont-forum">
   <div class="row">
     <div class="col-xs-3 col-sm-2">
       <div class="avatar">
-        <%= image_tag micropost.user.avatar.thumb.url, alt: "Immagine del profilo",class: "img-circle" %>
+        <%= image_tag '/public'+micropost.user.avatar.thumb.url, alt: "Immagine del profilo",class: "img-circle" %>
         <p><%= link_to micropost.user.username, micropost.user %></p>
       </div>
     </div>
-    <div class="col-xs-5 col-sm-7 post-text"> 
+    <div class="col-xs-5 col-sm-7 post-text">
       <h4><%= link_to micropost.title, micropost %></h4>
       <p><%= micropost.content %></p>
     </div>
