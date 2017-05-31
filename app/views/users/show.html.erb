@@ -105,11 +105,11 @@
   </h4>
   <p>Data di nascita: <%= @user.birth_date ? @user.birth_date.strftime("%d/%m/%Y") : content_tag(:i, "sconosciuto") %></p>
   <p>Professione: <%= @user.occupation ? @user.occupation : content_tag(:i, "sconosciuto") %> </p>
-  <p>Genere preferito: <% if favourite_category = @user.favourite_category %>
-                          <%= Category.find(favourite_category).name %>
-                       <% else %>
-                          <%= content_tag :i, "sconosciuto" %>
-                       <% end %></p>
+  <p>Genere preferito: <%# if favourite_category = @user.favourite_category %>
+                          <%#= Category.find(favourite_category).name %>
+                       <%# else %>
+                          <%#= content_tag :i, "sconosciuto" %>
+                       <%# end %></p>
   <div class="profile-btn border-top text-center">
     <% if user_signed_in? && current_user != @user %>
       <% if !current_user.following?(@user) %>
