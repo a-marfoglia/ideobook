@@ -48,4 +48,12 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  def url(*args)
+    if Rails.env.production?
+      "/public"+super
+    else
+      super
+    end
+  end
+  
 end

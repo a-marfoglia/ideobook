@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-xs-3 col-sm-2">
             <div class="avatar">
-              <%= image_tag '/public'+@micropost.user.avatar.thumb.url, alt: "Immagine del profilo", class: "img-circle" %>
+              <%= image_tag @micropost.user.avatar.thumb.url, alt: "Immagine del profilo", class: "img-circle" %>
               <%= link_to @micropost.user.username, @micropost.user %>
             </div>
           </div>
@@ -87,7 +87,7 @@
            <div class="row">
              <div class="col-xs-3 col-sm-2">
                <div class="avatar">
-                 <%= image_tag '/public'+current_user.avatar.thumb.url, alt: "Immagine del profilo", class: "img-circle" %>
+                 <%= image_tag current_user.avatar.thumb.url, alt: "Immagine del profilo", class: "img-circle" %>
                  <p><%= link_to current_user.username, @micropost.user %></p>
                </div>
              </div>

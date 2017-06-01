@@ -6,7 +6,7 @@
       <div class="col-xs-8 col-sm-3 col-lg-2">
         <div class="cont-forum profile">
           <div class="user-avatar-container">
-            <%= image_tag '/public'+@user.avatar.medium.url.to_s, alt: "Immagine del profilo",
+            <%= image_tag @user.avatar.medium.url.to_s, alt: "Immagine del profilo",
                                                     class: "img-responsive" %>
             <% if current_user == @user %>
               <span class="glyphicon glyphicon-edit"></span>
