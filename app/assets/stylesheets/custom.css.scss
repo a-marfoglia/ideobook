@@ -391,7 +391,7 @@ h6 { font-size: 13px; }
   }
 
   .avatar {
-    padding-left: 16px;
+    //padding-left: 16px;
     margin-top:8px;
     text-align:center;
     img {
@@ -399,13 +399,13 @@ h6 { font-size: 13px; }
       width: 50px;
     }
     p {
-      min-width: 60px;
+      //min-width: 60px;
       word-wrap: break-word;
     }
 
     @media only screen and (max-width: $screen-xs-max) {
-      a{font-size: 11.6px;
-        margin-left: -8px;}
+      a{font-size: 12px;}
+        //margin-left: -8px;}
      }
   }
 
@@ -580,7 +580,6 @@ h6 { font-size: 13px; }
     margin-bottom: 10px;
     p { color: $grey-primary-text;}
     a { text-decoration:none; }
-    .avatar p { margin-left: -10px; }
     .post-text{
        max-height: 126px;
        overflow: hidden;
@@ -605,6 +604,7 @@ h6 { font-size: 13px; }
     }
     @media only screen and (max-width: $screen-xs-max){
         .post-text { padding-right:0px; }
+        .post-info span {font-size: 11px;}
       }
   }
 }
@@ -627,9 +627,13 @@ h6 { font-size: 13px; }
     .alter-padding2 { padding: 0px 26px;}
     //.glyphicon-thumbs-up { padding-right: 11px; }
     .glyphicon { color:#2F2F2F; cursor: pointer; }
+    .glyphicon-time { cursor: default; }
 
     @media only screen and (max-width: $screen-xs-max){
-      .alter-padding2 { padding: 0px; }
+      .alter-padding2 {
+          padding: 0px;
+          span.time-ago { font-size: 11px; }
+      }
       .alter-padding { padding-right: 28px; }
       .glyphicon-thumbs-up { padding-right: 8px; }
     }
@@ -651,15 +655,25 @@ h6 { font-size: 13px; }
   list-style:none;
   li { margin-bottom:10px;}
   .comment{
-    span { font-size: 12px; padding:7px; word-spacing: -8px;}
-    .comment-content{min-height: 68px;}
+    //span { font-size: 12px; padding:7px; word-spacing: -8px;}
+    div.comment-info{ padding:5px; }
+    .comment-content{
+      min-height: 68px;
+      .glyphicon-remove { padding:2px; color:#2F2F2F; }
+    }
     .padding-text{
       padding-right: 13%;
       padding-top:18px;
     }
   }
-  @media only screen and (max-width: $screen-xs-max){ padding: 0px;}
- }
+  @media only screen and (max-width: $screen-xs-max){
+    padding: 0px;
+    .comment{
+      span.time-ago { font-size: 11px; }
+      .comment-content a .glyphicon-remove { font-size:11px; }
+    }
+  }
+}
 
 
 /* end of View rules */
