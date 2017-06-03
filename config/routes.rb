@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :micropost_viewer, only: [:show]
   resources :notifications, only: [:index]
   root 'static_pages#home'
+  get "/terms" => "static_pages#terms"
   #devise_for :users, controllers: { registrations: 'registrations' }
   devise_for :users, :controllers => { :registrations => 'registrations', confirmations: 'confirmations' }
   resources :users, only: [:show]
