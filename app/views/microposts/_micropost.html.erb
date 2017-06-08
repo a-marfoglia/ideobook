@@ -1,21 +1,24 @@
-<li class="post cont-forum">
+<li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem" class="post cont-forum">
   <div class="row">
     <div class="col-xs-3 col-sm-2">
       <div class="avatar">
-        <%= image_tag micropost.user.avatar.thumb.url, alt: "Immagine del profilo",class: "img-circle" %>
-        <p><%= link_to micropost.user.username, micropost.user %></p>
+        <%= image_tag micropost.user.avatar.thumb.url, alt: "Immagine del profilo",
+            class: "img-circle",itemprop: "image", alt: "Author" %>
+        <p><%= link_to micropost.user.username, micropost.user, itemscope: "",
+              itemtype: "http://schema.org/Thing",itemprop: "item"  %></p>
       </div>
     </div>
     <div class="col-xs-5 col-sm-7 post-text">
-      <h4><%= link_to micropost.title, micropost %></h4>
+      <h4><%= link_to micropost.title, micropost,itemscope: "", itemtype: "http://schema.org/Thing", itemprop: "name" %></h4>
       <p><%= micropost.content %></p>
     </div>
     <div class="col-xs-4 col-sm-3">
       <div class="border-left post-info text-center">
-        <span class="glyphicon glyphicon-eye-open border-bottom"><%= micropost.views %></span>
-	      <span class="glyphicon glyphicon-thumbs-up border-bottom"><%= micropost.followers_count %></span>
-        <span class="glyphicon glyphicon-comment border-bottom"><%= micropost.comments.count %></span>
-        <span class="glyphicon glyphicon-time border-bottom"><i><%= time_ago_in_words(micropost.created_at) %></i></span>
+        <span itemprop="views" class="glyphicon glyphicon-eye-open border-bottom"><%= micropost.views %></span>
+	      <span itemprop="followers" class="glyphicon glyphicon-thumbs-up border-bottom"><%= micropost.followers_count %></span>
+        <span itemprop="comments" class="glyphicon glyphicon-comment border-bottom"><%= micropost.comments.count %></span>
+        <span itemprop="created_at" class="glyphicon glyphicon-time border-bottom"><i><%= time_ago_in_words(micropost.created_at) %></i></span>
       </div>
     </div>
   </div>

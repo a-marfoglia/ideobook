@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :sitemap, :only =>:index
+  get 'sitemap.xml', :controller =>"sitemap", :action => "xml"
+
   resources :micropost_viewer, only: [:show]
   resources :notifications, only: [:index]
   root 'static_pages#home'

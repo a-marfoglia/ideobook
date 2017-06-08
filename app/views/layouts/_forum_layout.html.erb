@@ -15,7 +15,7 @@
             	    <%= image_tag image_path('logo.jpg')%>
             	  <% end %>
 	            </div>
-              
+
 	            <div class="hidden-xs hidden-sm col-md-3 dropdown">
 	              <a id="current_page" data-toggle="dropdown" href="#">Ordina le storie</a>
 	              <b class="caret"></b>
@@ -29,12 +29,15 @@
 		              <li role="presentation">
 		                <%= link_to "Le più recenti",{controller: "microposts", action: "index"}, {'role' => 'menuitem','tabindex' => 2}%>
 		              </li>
-	              </ul>         
+	              </ul>
 	            </div>
-	            <div class="col-xs-12 col-sm-5 col-md-4">
-                <%= form_for microposts_path, method: 'get', html: { class: 'input-group' } do |f| %>
-                  <%= text_field_tag :search, params[:search], class: 'form-control','autocomplete'=>'off' %>
-                  <span class="input-group-btn">                   
+	            <div itemscope itemtype="http://schema.org/WebSite" class="col-xs-12 col-sm-5 col-md-4">
+                <meta itemprop="url" content="http://www.bitbooks.it/microposts"/>
+                <%= form_for microposts_path, method: 'get', html: { class: 'input-group',
+                itemprop: 'potentialAction', itemscope:' ' ,itemtype: 'http://schema.org/SearchAction' } do |f| %>
+                  <meta itemprop="target" content="http://wwww.bibooks.it/microposts?utf8=✓&search={search}"/>
+                  <%= text_field_tag :search, params[:search], class: 'form-control','autocomplete'=>'off',itemprop:'query-input' %>
+                  <span class="input-group-btn">
                       <%= button_tag class: 'btn btn-primary btn-search' do %>
                         <i class="glyphicon glyphicon-search"></i>
                      <% end %>
