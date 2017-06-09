@@ -16,7 +16,7 @@
 	            </div>
 	          </div>
             <div class="col-xs-2 col-sm-1">
-              <% if current_user && (comment.user == current_user) %>
+              <% if comment.user == current_user || comment.micropost.user == current_user %>
 		              <%= link_to micropost_comment_path(comment.micropost, comment), method: 'delete',
 		                 data: { confirm: "Vuoi cancellare il commento?" } do %>
 		                 <span class="pull-right glyphicon glyphicon-remove"></span>

@@ -12,7 +12,7 @@
             </div>
           </div>
           <div class="col-xs-9 col-sm-10 post-text">
-              <h4>
+              <h4 style="margin-bottom:0px;">
                 <%= @micropost.title %>
                 <% if user_signed_in? && current_user == @micropost.user %>
 		              <%= link_to micropost_path(@micropost), :method => :delete, data: { confirm: "La tua storia verrà rimossa. Sei sicuro?" } do %>
@@ -23,7 +23,8 @@
                   <% end %>
               <% end %>
               </h4>
-              <p>
+              <span class="badge" style="font-size: 9px;">#<%= @micropost.category.name %></span>
+              <p style="margin-top:4px;">
                 <%= @micropost.content %>
               </p>
           </div>
