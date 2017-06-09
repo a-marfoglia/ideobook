@@ -2,14 +2,14 @@
 <html>
 <head itemscope itemtype="http://schema.org/WebSite">
   <title itemprop='name'><%= page_title(yield(:title)) %></title>
-  <link rel="canonical" href="http://www.bitbooks.it/" itemprop="url">
+  <link <%= yield(:sitep) %>>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 	<%= render 'layouts/bootstrap_viewport' %>
 	<%= render 'layouts/shim' %>
 	<meta name="google-site-verification" content="tcchNZXEhaL4jXmYeRtPwEWQWRpUd44xNV_il7Lo8ZE" />
-  <meta yield(:meta)/>
+  <meta name="description" content="<%= yield(:metaD) %>"/>
 </head>
 <body>
   <div id="wrap">

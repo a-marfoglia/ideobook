@@ -6,4 +6,5 @@ xml.tag! 'urlset', 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9', 'xm
   xml << (render :partial => 'sitemap/micropost', microposts: @microposts)
   xml << (render :partial => 'sitemap/user', users: @users)
   xml << (render :partial => 'sitemap/notification', notifications: @notifications)
+  xml << (render :partial => 'sitemap/attachment', microposts: @microposts)
 end
