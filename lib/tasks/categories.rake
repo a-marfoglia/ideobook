@@ -19,13 +19,14 @@ namespace :categories do
       Category.create(name: "Poliziesco")
       Category.create(name: "Psicologico")
       Category.create(name: "Romantico")
+      Category.create(name: "Saggistica")
       Category.create(name: "Satirico")
       Category.create(name: "Sogni")
       Category.create(name: "Storico")
       Category.create(name: "Teatro")
       Category.create(name: "Thriller")
     end
-  end  
+  end
 
   desc "Run all tasks"
   task :load => :default_categories
