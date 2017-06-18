@@ -6,8 +6,8 @@ class Micropost < ActiveRecord::Base
 
   #default_scope -> { order(views: :desc) }
   validates :user_id, presence: true
-  validates :title, presence: true, length: { maximum: 30 }
-  validates :content, presence: true, length: { maximum: 300, mininum: 30 }
+  validates :title, presence: true, length: { maximum: 40 }
+  validates :content, presence: true, length: { maximum: 500, mininum: 10 }
   validates :category_id, presence: true
 
   mount_uploader :attachment, AttachmentUploader
