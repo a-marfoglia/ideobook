@@ -11,11 +11,11 @@ it:
         micropost:
           attributes:
             title:
-              too_long:     "inserito è troppo lungo (massimo 30 caratteri)"  
+              too_long:     "inserito è troppo lungo (massimo 40 caratteri)"
               blank:        "non è stato inserito"
             content:
-              too_short:    "inserita è troppo corta (minimo 30 caratteri)"
-              too_long:     "inserita è troppo lunga (massimo 300 caratteri)"
-              blank:        "non è stata inserita"  
+              too_short:    "inserita è troppo corta (minimo 10 caratteri)"
+              too_long:     "inserita è troppo lunga (massimo 500 caratteri)"
+              blank:        "non è stata inserita"
             category_id:
               blank:        "non è stata specificata"

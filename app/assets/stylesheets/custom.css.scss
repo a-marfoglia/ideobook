@@ -645,9 +645,11 @@ h6 { font-size: 13px; }
   padding-bottom: 10px;
   margin-bottom:40px;
 
-  p{
+
+  .post-text p{
     min-height:95px;
     padding-right: 15px;
+    text-align: justify;
   }
   .options{
     position:absolute;
