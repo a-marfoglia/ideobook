@@ -46,7 +46,7 @@
 		          </div>
 		          <div class="pull-right alter-padding col-xs-1">
 		            <% if current_user && @micropost.has_attachment? %>
-              		  <%= link_to micropost_viewer_path(@micropost) do %>
+              		  <%= link_to micropost_viewer_path(@micropost), onclick: 'clickAndDisable(this)', class: 'open' do %>
               		    <span class="glyphicon glyphicon-eye-open"></span>
               		  <% end %>
 		            <% else %>
@@ -117,4 +117,33 @@
      </div>
    </div>
    <%= render 'layouts/forum_sidebox' %>
+
+   <div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div style="margin-top: 200px;" class="modal-dialog modal-sm" role="document">
+      <div style="border-radius: 0px;" class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color: #2F2F2F;" aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Caricamento racconto</h4>
+        </div>
+        <div class="modal-body">
+        Il racconto è in fase di elaborazione...
+        </div>
+        <div class="modal-footer">
+          <!--<button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>-->
+        </div>
+      </div>
+    </div>
+
+</div>
 <% end %>
+
+<script>
+function clickAndDisable(link)
+{
+   $('#myModal').modal('show');
+    /*link.onclick = function(event)
+    {
+        event.preventDefault();
+    }*/
+}
+</script>

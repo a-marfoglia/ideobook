@@ -2,52 +2,6 @@
 <% @no_header = true %>
 <% @no_footer = true %>
 
-<!--<nav id="nav-viewer" class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-viewer">
-	<div class="navbar-header">
-	  <%= link_to "x", micropost_path(@micropost), id: "btn-viewer-back", class: "btn" %>
-	  
-	  <h3><%= @micropost.title %></h3><h5>di <%=@micropost.user.username %></h5>
-	  <button type="button" class="navbar-toggle collapsed" data-toggle=
-	  "collapse" data-target="#navbar-content"
-	  aria-expanded="false">
-		<span class="sr-only">Toggle navigation</span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-	  </button>
-	</div>
-	<div id="navbar-content" class="collapse navbar-collapse">
-	  <ul class="nav navbar-nav navbar-right">
-		  <li>
-			
-			<% if current_user != @micropost.user %>
-    		  <% if current_user.following?(@micropost) %>                        
-            <%= link_to micropost_follow_path(id: @micropost.id), method: 'delete', class: "btn" do %>
-              Non mi piace <i class="glyphicon glyphicon-thumbs-up "></i>
-            <% end %>
-    		  <% else %>  
-            <%= link_to new_micropost_follow_path(id: @micropost.id), class: "btn" do %>
-              Mi piace <i class="glyphicon glyphicon-thumbs-up "></i>
-            <% end %>
-          <% end %>
-        <% end %>
-				
-		  </li>
-		  <li>
-		  <%= link_to @micropost.attachment.url, download: "micropost_#{@micropost.id}_attachment", class: "btn" do %>
-			  Scarica <i class="glyphicon glyphicon-download"></i>
-			<% end %>
-		  </li>
-		  <li>
-			  <a class="btn hidden-xs hidden-sm" onclick="window.print();return false;"><i class="glyphicon glyphicon-print"></i></a>
-		  </li> 
-	  </ul>
-	</div>
-  </div>
-</nav>
--->
-
 <div id="background" class="container-fluid">
   <section id="forum-main" class="container">
     <nav id="nav-viewer" class="navbar navbar-inverse navbar-fixed-top">
@@ -66,19 +20,19 @@
 	      <div id="navbar-content" class="collapse navbar-collapse">
 	        <ul class="nav navbar-nav navbar-right">
 		        <li>
-			
+
 			      <% if current_user != @micropost.user %>
-          		  <% if current_user.following?(@micropost) %>                        
+          		  <% if current_user.following?(@micropost) %>
                   <%= link_to micropost_follow_path(id: @micropost.id), method: 'delete', class: "btn" do %>
                     Non mi piace <i class="glyphicon glyphicon-thumbs-up "></i>
                   <% end %>
-          		  <% else %>  
+          		  <% else %>
                   <%= link_to new_micropost_follow_path(id: @micropost.id), class: "btn" do %>
                     Mi piace <i class="glyphicon glyphicon-thumbs-up "></i>
                   <% end %>
                 <% end %>
               <% end %>
-				
+
 		        </li>
 		        <li>
 		        <%= link_to @micropost.attachment.url, download: "micropost_#{@micropost.id}_attachment", class: "btn" do %>
@@ -88,46 +42,20 @@
 		        <li>
 			        <a class="btn hidden-xs " onclick="window.print();return false;"><i class="glyphicon glyphicon-print"></i></a>
 			        <a class="btn hidden-sm hidden-md hidden-lg" onclick="window.print();return false;">Stampa <i class="glyphicon glyphicon-print"></i></a>
-		        </li> 
+		        </li>
 	        </ul>
 	      </div>
-  
+
     </nav>
     <div id="cont-viewer">
-        
-        <% doc = Docx::Document.open(@micropost.attachment.path) %>
-         <% h=[];i=0; doc.paragraphs.each do |p|%>
-         	<% h[i] = p.to_s %>
-         	<% i+=1 %>
-        <% end %>  
-                
-         <% i=0; l=0; m=0; d=""; s="";  
-          while i<h.length do
-           d = h[i]; %>
-            <% while l<(d.length) do %>
-               
-                <% s += d[l] %>
-  
-                <% if m > 4020 && d[l] == " " %>
-                  <div class="cont-forum paper"><p><%= s.html_safe %></p></div>
-                  <% s = ""; m=0; %>
-                <% end %>
-                <% l+=1 %>
-                <% m+=1 %>
-                
-              <% end %>
-              <% if d != ""
-                  s+="<br></br>";
-                  m+=164;  
-               end
-               i+=1; l=0;  %>
-            
-            <% end %>
-            
-            <div class="cont-forum paper"><p><%= s.html_safe %></p></div>
+
+      <% doc = Docx::Document.open(@micropost.attachment.path) %>
+      <div class="cont-forum paper">
+       <% doc.paragraphs.each do |p| %>
+       	   <p><%= p.to_html.html_safe %></p>
+      <% end %>
+      </div>
+
     </div>
   </section>
 </div>
-
-
-      
